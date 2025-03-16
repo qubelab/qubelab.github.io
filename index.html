@@ -376,6 +376,14 @@
 </section>
 <!-- End About Us Section -->
 
+<script>
+  window.onload = function() {
+    if (typeof twttr !== 'undefined') {
+      twttr.widgets.load();
+    }
+  };
+</script>
+
 <style>
   .twitter-container {
     max-width: 100%;
