@@ -363,8 +363,12 @@
       <div class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center">
         <!-- Twitter Embed -->
         <div class="twitter-container">
-          <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/QUBE_lab?ref_src=twsrc%5Etfw">
-            Tweets by QUBE_lab
+          <!-- <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/QUBE_lab?ref_src=twsrc%5Etfw">Tweets by QUBE_lab -->
+            <!-- <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/QUBE_lab?ref_src=twsrc%5Etfw">Tweets by QUBE_lab</a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+            <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/Nature?ref_src=twsrc%5Etfw">Tweets by Nature</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
           </a> 
           <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
         </div>
@@ -806,7 +810,14 @@ aim to be the best in the niche that we serve.
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof(twttr) !== 'undefined') {
+        twttr.widgets.load();
+      }
+    });
+  </script>
 </body>
 
 </html>
