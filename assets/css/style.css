@@ -793,7 +793,7 @@ section {
   border: 1px solid #70b9b0;
 }
 
-.contact .social-links a:hover {
+.contact .social-links a {
   background: #70b9b0;
   color: #fff;
 }
