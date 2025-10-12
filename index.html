@@ -393,6 +393,141 @@
 </section>
 <!-- End About Us Section -->
 
+<!-- ======= World Map (Manual Data) ======= -->
+<section id="worldmap" class="section-bg" style="padding:60px 0;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Visitors by Country for our RadicalPy Software</h2>
+      <p id="worldmap-sub" style="margin:0">Manually entered data</p>
+    </div>
+
+    <div id="qutip-like-worldmap"
+         role="img"
+         aria-label="World map choropleth"
+         style="width:100%; max-width:1000px; height:420px; margin:0 auto; background:#fff; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.06);">
+    </div>
+  </div>
+</section>
+
+<!-- Google Charts loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  // ========= DATA (edit here) =========
+  // [Country, Value]
+  const RAW_DATA = [
+    ["United Kingdom",        141],
+    ["Japan",                 129],
+    ["South Africa",           17],
+    ["Germany",                12],
+    ["United States",           9],
+    ["South Korea",             8],
+    ["United Arab Emirates",    6],
+    ["Canada",                  5],
+    ["France",                  4],
+    ["China",                   3],
+    ["Switzerland",             3],
+    ["Hong Kong",               2],
+    ["Hungary",                 2],
+    ["Singapore",               2],
+    ["(not set)",               1],
+    ["Cyprus",                  1],
+    ["Czechia",                 1],
+    ["Egypt",                   1],
+    ["Finland",                 1],
+    ["Indonesia",               1],
+    ["Lithuania",               1],
+    ["Paraguay",                1],
+    ["Poland",                  1],
+  ];
+
+  // Optional subtitle
+  const SUBTITLE = "Last updated: October 2025";
+
+  // QuTiP-like warm gradient
+  const COLOR_AXIS = ['#ffe5cc', '#ffb366', '#ff8c1a', '#e65100'];
+
+  // Normalize a few names to what GeoChart expects
+  const NAME_FIX = new Map([
+    ["South Korea", "Korea, Republic of"],
+    ["(not set)",   "Unknown"],
+    ["Czechia",     "Czech Republic"], // GeoChart is happier with this label
+  ]);
+
+  function normalizeCountry(name) {
+    const trimmed = String(name || "").trim();
+    return NAME_FIX.get(trimmed) || trimmed;
+  }
+
+  // ======= No edits needed below =======
+
+  function showError(msg) {
+    const el = document.getElementById('qutip-like-worldmap');
+    el.innerHTML = `<div style="padding:1rem; color:#dc3545">${msg}</div>`;
+  }
+
+  function buildDataTable(rows) {
+    if (!Array.isArray(rows) || rows.length === 0) {
+      throw new Error("DATA is empty");
+    }
+
+    const data = new google.visualization.DataTable();
+    data.addColumn('string', 'Country');
+    data.addColumn('number', 'Value');
+    data.addColumn({ type: 'string', role: 'tooltip', p: { html: true } });
+
+    let added = 0;
+    for (const entry of rows) {
+      if (!entry || entry.length < 2) continue;
+      const country = normalizeCountry(entry[0]);
+      const value   = Number(entry[1]);
+
+      if (!country || !isFinite(value)) continue;
+
+      const tip = `<div style="padding:.35rem .5rem;white-space:nowrap">
+        <div style="font-weight:600">${country}</div>
+        <div>${value.toLocaleString()} total</div>
+      </div>`;
+      data.addRow([country, value, tip]);
+      added++;
+    }
+    if (added === 0) throw new Error("No valid rows in DATA");
+    return data;
+  }
+
+  function drawMap(dataTable) {
+    const el = document.getElementById('qutip-like-worldmap');
+    const chart = new google.visualization.GeoChart(el);
+    const opts = {
+      region: 'world',
+      resolution: 'countries',
+      legend: 'none',
+      backgroundColor: 'transparent',
+      datalessRegionColor: '#eef2f5',
+      tooltip: { isHtml: true, trigger: 'focus' },
+      colorAxis: { colors: COLOR_AXIS },
+      keepAspectRatio: true
+    };
+    chart.draw(dataTable, opts);
+    // Redraw on resize
+    const onResize = () => chart.draw(dataTable, opts);
+    window.addEventListener('resize', onResize);
+  }
+
+  function renderWorldMap() {
+    try {
+      document.getElementById('worldmap-sub').textContent = SUBTITLE;
+      const table = buildDataTable(RAW_DATA);
+      drawMap(table);
+    } catch (err) {
+      console.error("[worldmap] error:", err);
+      showError("Unable to draw map (check DATA entries)");
+    }
+  }
+
+  google.charts.load('current', { packages: ['geochart'] });
+  google.charts.setOnLoadCallback(renderWorldMap);
+</script>
+
 
 <!-- <style>
   .twitter-container {
