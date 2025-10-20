@@ -393,11 +393,19 @@
 </section>
 <!-- End About Us Section -->
 
+<section id="services" class="services section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Research</h2>
+      <p>Our group focusses on understanding the influence of quantum effects on biological function and their medical applications.</p>
+    </div>
+
 <!-- ======= World Map (Manual Data) ======= -->
 <section id="worldmap" class="section-bg" style="padding:60px 0;">
   <div class="container">
     <div class="section-title">
-      <h2>Visitors by Country for our RadicalPy Software</h2>
+      <h2>Event Counts by Country for our RadicalPy Software</h2>
       <p id="worldmap-sub" style="margin:0">Manually entered data</p>
     </div>
 
@@ -413,31 +421,31 @@
 <script src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
   // ========= DATA (edit here) =========
-  // [Country, Value]
+  // [Country (free text), Value]
   const RAW_DATA = [
-    ["United Kingdom",        141],
-    ["Japan",                 129],
-    ["South Africa",           17],
-    ["Germany",                12],
-    ["United States",           9],
-    ["South Korea",             8],
-    ["United Arab Emirates",    6],
-    ["Canada",                  5],
-    ["France",                  4],
-    ["China",                   3],
-    ["Switzerland",             3],
-    ["Hong Kong",               2],
-    ["Hungary",                 2],
-    ["Singapore",               2],
-    ["(not set)",               1],
-    ["Cyprus",                  1],
-    ["Czechia",                 1],
-    ["Egypt",                   1],
-    ["Finland",                 1],
-    ["Indonesia",               1],
-    ["Lithuania",               1],
-    ["Paraguay",                1],
-    ["Poland",                  1],
+    ["United Kingdom",        1934],
+    ["Japan",                 1894],
+    ["South Africa",           149],
+    ["Germany",                109],
+    ["United States",           104],
+    ["South Korea",             101],
+    ["United Arab Emirates",    54],
+    ["Canada",                  22],
+    ["France",                  48],
+    ["China",                   31],
+    ["Switzerland",             37],
+    ["Hong Kong",               13],
+    ["Hungary",                 9],
+    ["Singapore",               12],
+    ["(not set)",               3], // will be ignored
+    ["Cyprus",                  5],
+    ["Czechia",                 8],
+    ["Egypt",                   4],
+    ["Finland",                 7],
+    ["Indonesia",               6],
+    ["Lithuania",               20],
+    ["Paraguay",                5],
+    ["Poland",                  8],
   ];
 
   // Optional subtitle
@@ -446,16 +454,36 @@
   // QuTiP-like warm gradient
   const COLOR_AXIS = ['#ffe5cc', '#ffb366', '#ff8c1a', '#e65100'];
 
-  // Normalize a few names to what GeoChart expects
-  const NAME_FIX = new Map([
-    ["South Korea", "Korea, Republic of"],
-    ["(not set)",   "Unknown"],
-    ["Czechia",     "Czech Republic"], // GeoChart is happier with this label
+  // ---- Map human names to ISO-2 region codes GeoChart likes ----
+  // Using ISO codes prevents mismatch (“Czechia” vs “Czech Republic”, etc.).
+  const NAME_TO_ISO2 = new Map([
+    ["United Kingdom",        "GB"],
+    ["Japan",                 "JP"],
+    ["South Africa",          "ZA"],
+    ["Germany",               "DE"],
+    ["United States",         "US"],
+    ["South Korea",           "KR"], // = Korea, Republic of
+    ["United Arab Emirates",  "AE"],
+    ["Canada",                "CA"],
+    ["France",                "FR"],
+    ["China",                 "CN"],
+    ["Switzerland",           "CH"],
+    ["Hong Kong",             "HK"],
+    ["Hungary",               "HU"],
+    ["Singapore",             "SG"],
+    ["Cyprus",                "CY"],
+    ["Czechia",               "CZ"], // avoid "Czech Republic" name mismatch
+    ["Egypt",                 "EG"],
+    ["Finland",               "FI"],
+    ["Indonesia",             "ID"],
+    ["Lithuania",             "LT"],
+    ["Paraguay",              "PY"],
+    ["Poland",                "PL"],
   ]);
 
-  function normalizeCountry(name) {
+  function toRegionCode(name) {
     const trimmed = String(name || "").trim();
-    return NAME_FIX.get(trimmed) || trimmed;
+    return NAME_TO_ISO2.get(trimmed) || null; // return null if unknown
   }
 
   // ======= No edits needed below =======
@@ -471,23 +499,30 @@
     }
 
     const data = new google.visualization.DataTable();
-    data.addColumn('string', 'Country');
+    // IMPORTANT: first column is the region code (ISO-2)
+    data.addColumn('string', 'Region');
     data.addColumn('number', 'Value');
     data.addColumn({ type: 'string', role: 'tooltip', p: { html: true } });
 
     let added = 0;
     for (const entry of rows) {
       if (!entry || entry.length < 2) continue;
-      const country = normalizeCountry(entry[0]);
+
+      const rawName = String(entry[0] ?? "").trim();
       const value   = Number(entry[1]);
 
-      if (!country || !isFinite(value)) continue;
+      // Skip unknown or "(not set)" entries so they don't break rendering
+      if (!rawName || rawName.toLowerCase() === "(not set)") continue;
+
+      // Map to ISO-2 code; if we can't, skip the row to avoid GeoChart errors
+      const code = toRegionCode(rawName);
+      if (!code || !isFinite(value)) continue;
 
       const tip = `<div style="padding:.35rem .5rem;white-space:nowrap">
-        <div style="font-weight:600">${country}</div>
+        <div style="font-weight:600">${rawName}</div>
         <div>${value.toLocaleString()} total</div>
       </div>`;
-      data.addRow([country, value, tip]);
+      data.addRow([code, value, tip]);
       added++;
     }
     if (added === 0) throw new Error("No valid rows in DATA");
@@ -508,9 +543,12 @@
       keepAspectRatio: true
     };
     chart.draw(dataTable, opts);
-    // Redraw on resize
-    const onResize = () => chart.draw(dataTable, opts);
-    window.addEventListener('resize', onResize);
+
+    // Redraw on resize (avoid stacking multiple listeners if re-run)
+    if (!window.__radicalpy_worldmap_resize__) {
+      window.__radicalpy_worldmap_resize__ = () => chart.draw(dataTable, opts);
+      window.addEventListener('resize', window.__radicalpy_worldmap_resize__);
+    }
   }
 
   function renderWorldMap() {
@@ -527,6 +565,7 @@
   google.charts.load('current', { packages: ['geochart'] });
   google.charts.setOnLoadCallback(renderWorldMap);
 </script>
+
 
 <section id="worldmap" class="section-bg" style="padding:60px 0;">
   <div class="container">
@@ -569,13 +608,13 @@ aim to be the best in the niche that we serve.
     </section>End About Us Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
+    <!-- <section id="services" class="services section-bg">
       <div class="container">
 
         <div class="section-title">
           <h2>Research</h2>
           <p>Our group focusses on understanding the influence of quantum effects on biological function and their medical applications.</p>
-        </div>
+        </div> -->
 
         
           
