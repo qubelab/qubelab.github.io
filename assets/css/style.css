@@ -312,6 +312,57 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   color: #fff;
 }
 
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  display: block;
+  cursor: pointer;
+}
+
+/* Hidden dropdown menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 160px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+  background: #000000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  display: block;
+  padding: 10px 16px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: #edeaea;
+}
+
+/* Hover effect */
+.dropdown-content a:hover {
+  background: #000000;
+}
+
+/* Show menu when clicked or focused */
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+/* Desktop hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
