@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>QUBE Lab</title>
+  <meta name="author" content="Velile Vamba">
+  <meta content="" name="lorem100">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  
+
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/img/qube_logo_2.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/qube_logo_2.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/img/qube_logo_2.png">
+<link rel="manifest" href="/favicon/site.webmanifest">
+<link rel="mask-icon" href="/assets/img/qube_logo_2.png" color="#5bbad5">
+<link rel="shortcut icon" href="assets/img/qube_logo_2.png">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="msapplication-config" content="/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Lato:400,300,700,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
+  <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/free.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/brand.min.css">
+<link rel="stylesheet" href="https://unpkg.com/@coreui/icons@2.0.0-beta.3/css/flag.min.css">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+	<style type="text/css">
+		.carousel-item {
+		  height: 60vh;
+		  min-height: 350px;
+		  background: no-repeat center center scroll;
+		  -webkit-background-size: cover;
+		  -moz-background-size: cover;
+		  -o-background-size: cover;
+		  background-size: cover;
+		}
+
+    .main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.main .wrap {
+  margin: 2rem;
+
+  transform-style: preserve-3d;
+  transform: perspective(100rem);
+
+  cursor: pointer;
+}
+
+.main .container {
+  --rX: 0;
+  --rY: 0;
+  --bX: 50%;
+  --bY: 80%;
+
+ 
+  border: 1px solid var(--background-color);
+  border-radius: 1.6rem;
+  padding: 4rem;
+
+  display: flex;
+  align-items: flex-end;
+
+  position: relative;
+  transform: rotateX(calc(var(--rX) * 1deg)) rotateY(calc(var(--rY) * 1deg));
+
+  background: linear-gradient(hsla(0, 0%, 100%, .1), hsla(32, 57, 84));
+  background-position: var(--bX) var(--bY);
+  background-size: 40rem auto;
+  box-shadow: 0 0 3rem .5rem hsla(0, 0%, 0%);
+
+  transition: transform .6s 1s;
+}
+
+.main .container::before,
+.main .container::after {
+  content: "";
+
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid #fff;
+
+  position: absolute;
+  z-index: 2;
+
+  opacity: .6;
+  transition: .3s;
+}
+
+.main .container::before {
+  top: 2rem;
+  right: 2rem;
+
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+
+.main .container::after {
+  bottom: 2rem;
+  left: 2rem;
+
+  border-top-width: 0;
+  border-right-width: 0;
+}
+
+.main .container--active {
+  transition: none;
+}
+
+.main .container--2 {
+  filter: hue-rotate(80deg) saturate(140%);
+}
+
+.main .container--3 {
+  filter: hue-rotate(160deg) saturate(140%);
+}
+
+.main .container p {
+  color: hsla(0, 0%, 100%, .6);
+  font-size: 0.8rem;
+  text-align: left;
+}
+
+.main .wrap:hover .container::before,
+.main .wrap:hover .container::after {
+  width: calc(100% - 4rem);
+  height: calc(100% - 4rem);
+}
+
+.main .abs-site-link {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  color: hsla(0, 0%, 0%);
+  font-size: 1.6rem;
+} 
+
+/*****************************************/
+.solutions {
+  /* The image used */
+  background-image: url(assets/img/new_slider1.png);
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.solutions .wrapper{
+  width: 100%;
+  max-width: 100%;
+  margin: auto;
+}
+
+.solutions h1{
+  color: #fff;
+  font-weight: normal;
+  text-align: center;
+  font-size: 48px;
+}
+
+.solutions .panels{
+  list-style-type: none;
+  padding: 0;
+}
+
+.solutions .panels li{
+
+  margin: 0;
+  display: block;
+  box-sizing: border-box;
+  float: left;
+}
+
+.solutions .panels li div{
+  padding: 10% 0;
+  text-align: center;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  height: 50vh;
+}
+
+/*// ANIMATION STYLES //*/
+
+.solutions .panels div.back {
+  transform: rotateY(90deg);
+}
+
+.solutions .panels div.front {
+  position: absolute;
+}
+
+.solutions .panels li:hover div.front {
+  animation: twirl 0.2s ease-in forwards;
+}
+.solutions .panels li:hover div.back {
+  animation: twirl 0.2s 0.2s ease-out forwards reverse;
+}
+
+@keyframes twirl {
+  0%{ transform: rotateY(0deg)}
+  100% {transform: rotateY(90deg)}
+}
+
+.why-us {
+  /* The image used */
+  background-image: url(assets/img/new_slider1.png);
+
+  /* Set a specific height */
+  min-height: 350px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+	</style>
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top">
+    <div class="container">
+
+      <div class="logo float-left">
+        
+        <!-- <h1 class="text-light"><a href="index.html"><span>Our-Compnay Associate</span></a></h1> -->
+        <a href="qubelab.github.io"><img src="assets/img/qube_logo_2.png" alt="" class="img-fluid"></a>
+      </div>
+
+      <!-- <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">News</a></li>
+          <li><a href="#services">Research</a></li>
+          <li><a href="#faq">Publications</a></li>
+          <li><a href="#team">People</a></li>
+		      <li><a href="#contact">Contact Us</a></li>
+        </ul>
+            
+      </nav> -->
+
+
+      <nav class="nav-menu float-right d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header">Home</a></li>
+          <li><a href="#about">News</a></li>
+          <li><a href="#services">Research</a></li>
+          <li><a href="#faq">Publications</a></li>
+          <li><a href="#team">PI</a></li>
+          <li><a href="#members">Members</a></li>
+          <li><a href="#talks">Invited Talks</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">Simulations</a>
+            <ul class="dropdown-content">
+              <li><a href="tutorials/energy_levels.html">Energy Levels</a></li>
+              <li><a href="tutorials/time_evolution.html">Time Evolution</a></li>
+              <li><a href="tutorials/mary.html">Magnetic Field Effects</a></li>
+              <li><a href="tutorials/anisotropy.html">Anisotropy</a></li>
+              <li><a href="tutorials/relaxation_models.html">Relaxation</a></li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropbtn">RadicalPy</a>
+            <ul class="dropdown-content">
+              <li><a href="https://github.com/Spin-Chemistry-Labs/radicalpy">RadicalPy Software</a></li>
+              <li><a href="https://radicalpy.readthedocs.io/en/latest/">RadicalPy Documentation</a></li>
+              <li><a href="https://github.com/Spin-Chemistry-Labs/radicalpy/tree/main/examples/tutorials">RadicalPy Tutorials</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+
+    </div>
+  </header><!-- End #header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section >
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <div class="carousel-item active" style="background-image: url(assets/img/qube_logo_background.png)">
+          <div class="carousel-caption">
+            <h2 class="display-4">QUBE Lab</h2>
+            <p class="lead">Welcome to the Quantum Understanding of Biological Environments Laboratory</p>
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url(assets/img/mffms_background.png)">
+          <div class="carousel-caption">
+            <h2 class="display-4">New paper published in Nature Photonics!</h2>
+            <p class="lead"><a href="https://www.nature.com/articles/s41566-024-01593-x" style="color: white;">Click here to find out more!</a></p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url(assets/img/radicalpy_background.png)">
+          <div class="carousel-caption">
+            <h2 class="display-4">RadicalPy - our new software is released!</h2>
+            <p class="lead"><a href="https://pubs.acs.org/doi/10.1021/acs.jctc.4c00887" style="color: white;">Click here to find out more!</a></p>
+          </div>
+        </div>
+<!-- Slide Four - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url(assets/img/chicken_background.png)">
+          <div class="carousel-caption">
+            <h2 class="display-4">Magnetosensitivity of chicken cryptochromes</h2>
+            <p class="lead"><a href="https://pubs.acs.org/doi/10.1021/jacs.4c14037" style="color: white;">Click here to find out more!</a></p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+    </div>
+  </section><!-- #hero -->
+  
+
+  <main id="main">
+
+    <!-- ======= About Us Section =======
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2">
+            <img src="assets/img/Fapas.png" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1"> -->
+              <!-- Replace image with Twitter embed -->
+              <!-- <a class="twitter-timeline" href="https://twitter.com/LAntill21382?ref_src=twsrc%5Etfw">Tweets by Lewis Antill</a>
+              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div> -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>News</h2>
+    </div>
+
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-6 order-2 order-lg-1">
+        <h3>Welcome to the QUBE Lab at POSTECH, S. Korea!</h3>
+        <p>
+          "What I see in nature is a magnificent structure that we can comprehend only very imperfectly and that must fill a thinking person with a feeling of humility." Albert Einstein
+        </p>
+        <p>
+          We are experimental and theoretical biophysicists working on understanding the influence 
+          of quantum spin effects on biological function and their medical applications.
+        </p>
+        <p>
+          Our strong background in spin chemistry allows us to tackle key questions
+          in quantum biophysics. We are particularly interested in the radical pair mechanism and its role in
+          biological systems.
+        </p>
+        <p>
+          We approach these scientific questions by developing experimental techniques and software, and expertise to provide a
+          comprehensive understanding of the quantum effects in biological systems.
+        </p>
+        <p>
+          We are seeking highly motivated undergraduate students, graduate students, and postdoctoral research fellows.
+          Currently, we have funding for four postdoctoral research fellows (with Prof. Luke P. Lee).
+          If you would like to know more about our group and research, please send a self-introduction and CV to
+          Prof. Lewis M. Antill at lewisantill@postech.ac.kr
+        </p>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 d-flex justify-content-center">
+        <!-- Twitter Embed -->
+        <div class="twitter-container">
+          <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Proud to share our work in <a href="https://twitter.com/NaturePhotonics?ref_src=twsrc%5Etfw">@NaturePhotonics</a> <a href="https://t.co/xFAFNGu4lt">https://t.co/xFAFNGu4lt</a></p>&mdash; Lewis Antill (@QUBE_lab) <a href="https://twitter.com/QUBE_lab/status/1909734362394116103?ref_src=twsrc%5Etfw">April 8, 2025</a></blockquote>
+          <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <!-- <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/QUBE_lab?ref_src=twsrc%5Etfw">Tweets by QUBE_lab -->
+            <!-- <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/qube_lab?ref_src=twsrc%5Etfw">Tweets by QUBE_lab</a> 
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+           <!-- <a class="twitter-timeline" data-width="400" data-height="500" href="https://twitter.com/Nature?ref_src=twsrc%5Etfw">Tweets by Nature</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+          </a> 
+          <!-- <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- End About Us Section -->
+
+<section id="services" class="services section-bg">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Research</h2>
+      <p>Our group focusses on understanding the influence of quantum effects on biological function and their medical applications.</p>
+    </div>
+
+<!-- ======= World Map (Manual Data) ======= -->
+<section id="worldmap" class="section-bg" style="padding:60px 0;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Event Counts by Country for our RadicalPy Software</h2>
+      <p id="worldmap-sub" style="margin:0">Manually entered data</p>
+    </div>
+
+    <div id="qutip-like-worldmap"
+         role="img"
+         aria-label="World map choropleth"
+         style="width:100%; max-width:1000px; height:420px; margin:0 auto; background:#fff; border-radius:12px; box-shadow:0 6px 24px rgba(0,0,0,.06);">
+    </div>
+  </div>
+</section>
+
+<!-- Google Charts loader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+  // ========= DATA (edit here) =========
+  // [Country (free text), Value]
+  const RAW_DATA = [
+    ["United Kingdom",        1934],
+    ["Japan",                 1894],
+    ["South Africa",           149],
+    ["Germany",                109],
+    ["United States",           104],
+    ["South Korea",             101],
+    ["United Arab Emirates",    54],
+    ["Canada",                  22],
+    ["France",                  48],
+    ["China",                   31],
+    ["Switzerland",             37],
+    ["Hong Kong",               13],
+    ["Hungary",                 9],
+    ["Singapore",               12],
+    ["(not set)",               3], // will be ignored
+    ["Cyprus",                  5],
+    ["Czechia",                 8],
+    ["Egypt",                   4],
+    ["Finland",                 7],
+    ["Indonesia",               6],
+    ["Lithuania",               20],
+    ["Paraguay",                5],
+    ["Poland",                  8],
+  ];
+
+  // Optional subtitle
+  const SUBTITLE = "Last updated: October 2025";
+
+  // QuTiP-like warm gradient
+  const COLOR_AXIS = ['#ffe5cc', '#ffb366', '#ff8c1a', '#e65100'];
+
+  // ---- Map human names to ISO-2 region codes GeoChart likes ----
+  // Using ISO codes prevents mismatch (“Czechia” vs “Czech Republic”, etc.).
+  const NAME_TO_ISO2 = new Map([
+    ["United Kingdom",        "GB"],
+    ["Japan",                 "JP"],
+    ["South Africa",          "ZA"],
+    ["Germany",               "DE"],
+    ["United States",         "US"],
+    ["South Korea",           "KR"], // = Korea, Republic of
+    ["United Arab Emirates",  "AE"],
+    ["Canada",                "CA"],
+    ["France",                "FR"],
+    ["China",                 "CN"],
+    ["Switzerland",           "CH"],
+    ["Hong Kong",             "HK"],
+    ["Hungary",               "HU"],
+    ["Singapore",             "SG"],
+    ["Cyprus",                "CY"],
+    ["Czechia",               "CZ"], // avoid "Czech Republic" name mismatch
+    ["Egypt",                 "EG"],
+    ["Finland",               "FI"],
+    ["Indonesia",             "ID"],
+    ["Lithuania",             "LT"],
+    ["Paraguay",              "PY"],
+    ["Poland",                "PL"],
+  ]);
+
+  function toRegionCode(name) {
+    const trimmed = String(name || "").trim();
+    return NAME_TO_ISO2.get(trimmed) || null; // return null if unknown
+  }
+
+  // ======= No edits needed below =======
+
+  function showError(msg) {
+    const el = document.getElementById('qutip-like-worldmap');
+    el.innerHTML = `<div style="padding:1rem; color:#dc3545">${msg}</div>`;
+  }
+
+  function buildDataTable(rows) {
+    if (!Array.isArray(rows) || rows.length === 0) {
+      throw new Error("DATA is empty");
+    }
+
+    const data = new google.visualization.DataTable();
+    // IMPORTANT: first column is the region code (ISO-2)
+    data.addColumn('string', 'Region');
+    data.addColumn('number', 'Value');
+    data.addColumn({ type: 'string', role: 'tooltip', p: { html: true } });
+
+    let added = 0;
+    for (const entry of rows) {
+      if (!entry || entry.length < 2) continue;
+
+      const rawName = String(entry[0] ?? "").trim();
+      const value   = Number(entry[1]);
+
+      // Skip unknown or "(not set)" entries so they don't break rendering
+      if (!rawName || rawName.toLowerCase() === "(not set)") continue;
+
+      // Map to ISO-2 code; if we can't, skip the row to avoid GeoChart errors
+      const code = toRegionCode(rawName);
+      if (!code || !isFinite(value)) continue;
+
+      const tip = `<div style="padding:.35rem .5rem;white-space:nowrap">
+        <div style="font-weight:600">${rawName}</div>
+        <div>${value.toLocaleString()} total</div>
+      </div>`;
+      data.addRow([code, value, tip]);
+      added++;
+    }
+    if (added === 0) throw new Error("No valid rows in DATA");
+    return data;
+  }
+
+  function drawMap(dataTable) {
+    const el = document.getElementById('qutip-like-worldmap');
+    const chart = new google.visualization.GeoChart(el);
+    const opts = {
+      region: 'world',
+      resolution: 'countries',
+      legend: 'none',
+      backgroundColor: 'transparent',
+      datalessRegionColor: '#eef2f5',
+      tooltip: { isHtml: true, trigger: 'focus' },
+      colorAxis: { colors: COLOR_AXIS },
+      keepAspectRatio: true
+    };
+    chart.draw(dataTable, opts);
+
+    // Redraw on resize (avoid stacking multiple listeners if re-run)
+    if (!window.__radicalpy_worldmap_resize__) {
+      window.__radicalpy_worldmap_resize__ = () => chart.draw(dataTable, opts);
+      window.addEventListener('resize', window.__radicalpy_worldmap_resize__);
+    }
+  }
+
+  function renderWorldMap() {
+    try {
+      document.getElementById('worldmap-sub').textContent = SUBTITLE;
+      const table = buildDataTable(RAW_DATA);
+      drawMap(table);
+    } catch (err) {
+      console.error("[worldmap] error:", err);
+      showError("Unable to draw map (check DATA entries)");
+    }
+  }
+
+  google.charts.load('current', { packages: ['geochart'] });
+  google.charts.setOnLoadCallback(renderWorldMap);
+</script>
+
+
+<section id="worldmap" class="section-bg" style="padding:60px 0;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Introduction to Spin Chemistry with RadicalPy</h2>
+      <p> These tutorials cover electrons, spins, magnetic moments, the Zeeman effect, Hyperfine interactions, J-coupling, 
+dipolar coupling, chemical kinetics, molecular motion, spin Hamiltonians, density matrices, time evolution, 
+kinetic and relaxation superoperators, and more. <a href="https://github.com/Spin-Chemistry-Labs/radicalpy/tree/main/examples/tutorials">*Click here*.
+</p>
+    </div>
+
+
+
+<!-- <style>
+  .twitter-container {
+    max-width: 100%;
+    min-width: 300px;
+    overflow: hidden;
+  }
+</style> -->
+            <!-- <h3>What we do</h3>
+            <p class="">
+              Specialist in financial services software solutions to help financial services providers unlock
+business growth and digital transformation through innovation and technology.
+            </p>
+            <p>
+              Our-Compnay focuses on delivering relevant, agile yet simple technological solutions
+for financial services providers in the emerging markets. Our solutions give a better user
+interface to wealth managers, fund managers, insurance brokers /companies and other financial
+services providers with minimum costs.
+            </p>
+            <p>
+              As a simple rule, we do not aim to be the most dominant software provider in our space, but we
+aim to be the best in the niche that we serve.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>End About Us Section -->
+
+    <!-- ======= Services Section ======= -->
+    <!-- <section id="services" class="services section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Research</h2>
+          <p>Our group focusses on understanding the influence of quantum effects on biological function and their medical applications.</p>
+        </div> -->
+
+        
+          
+        </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Call To Action Section ======= -->
+    <section class="call-to-action">
+      <div class="container">
+        
+        <div class="text-center">
+          
+        <div class="section-title">
+          <h2 style="color: #fff;">Our Approach</h2>
+        </div>
+
+          <p>We approach these scientific questions by combining a range of techniques and expertise to provide a 
+            comprehensive understanding of the quantum effects in biological systems.
+          </p>
+
+<div class="container-fluid">
+  <div class="col-md-12">
+      <div class="row main">
+          <div class="wrap wrap--3 col-md-3">
+            <h6 style="color: #fff; text-align: center;">Technique Development</h6>
+              <div class="container container--3 ">
+                  <p>Providing the right tools for the job.</p>
+              </div>
+            </div>
+          
+            <div class="wrap wrap--3  col-md-3">
+              <h6 style="color: #fff; text-align: center;">Software and Theory Development</h6>
+              <div class="container container--3 ">
+                <p>Providing the correct interpretation of experimental findings.</p>
+              </div>
+            </div>
+          
+            <div class="wrap wrap--3 col-md-3">
+              <h6 style="color: #fff; text-align: center;">Collaboration</h6>
+              <div class="container container--3 ">
+                <p>Working with experts in key areas relevant to the project.</p>
+            
+              </div>
+            </div>
+          
+      </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </section><!-- End Call To Action Section -->
+
+    
+
+    <!-- ======= Frequently Asked Questions Section ======= -->
+
+    <section id="faq" class="solutions">
+      <div class="wrapper">
+        <h1>Publications</h1>
+        <p style="color: #fff; text-align: center;"><a href="https://scholar.google.com/citations?user=w80KNdoAAAAJ&hl=en" style="color: white;">Click here for Google Scholar</a></p>
+        <li class="section-title">
+        <h3 style="color: #fff;">Recent Publications</h3>
+        </li>
+        <ul class="panels">
+          <div class="row">
+          <li class="col-md-4">
+            <div class="front" style="background: #203954">
+              <h6>Single-photon quantum spin effects in biomolecules</h6>
+              <p>
+                Published in Nature Photonics!
+                <br>
+                The effects of magnetic fields on quantum entangled biomolecules are detected using a 
+                highly sensitive magneto-fluorescence fluctuation microspectroscopy technique. 
+                This marks an important advance in experimental quantum life sciences at the single-photon level.
+                <br>
+                <br>
+                <img src="assets/img/mffms.png" class="img-fluid" alt="">
+              </p>
+            </div>
+            <div class="back" style="background: #020a20">
+              <h6>Links</h6>
+            <p>
+              <a href="https://www.nature.com/articles/s41566-024-01593-x">Nature Photonics - Article</a>
+              <br>
+              <a href="https://www.nature.com/articles/s41566-025-01614-3">Nature Photonics - News & Views</a>
+              <br>
+              <a href="https://andor.oxinst.com/learning/view/article/mffms:-high-sensitivity-detection-of-quantum-spin-effects-in-biomolecules">Oxford Instruments Andor - Application Note</a>
+              <br>
+              <a href="https://www.azooptics.com/News.aspx?newsID=30141">Azo Optics - News</a>
+            </p>
+            </div>
+          </li>
+          <li class="col-md-4">
+            <div class="front" style="background: #203954">
+              <h6>Open-source spin dynamics software - RadicalPy</h6>
+              <p>
+                Published in the Journal of Chemical Theory and Computation!
+                <br>
+                We hope that this versatile framework provides the means for students and researchers to perform correct and complex radical pair 
+                dynamics simulations with relative ease, making it ideal as a teaching or learning tool for creating quick 
+                simulations on the fly.
+                <br>
+                <br>
+                <br>
+                <img src="assets/img/radicalpy.png" class="img-fluid" width="400"  height="100" alt="">
+              </p>
+            </div>
+            <div class="back" style="background: #020a20">
+              <h6>Links</h6>
+              <p>
+                <a href="https://pubs.acs.org/doi/10.1021/acs.jctc.4c00887">JCTC - Article</a>
+                <br>
+                <a href="https://github.com/Spin-Chemistry-Labs/radicalpy">Github Repo</a>
+                <br>
+                <a href="https://radicalpy.readthedocs.io/en/latest/">Documentation</a>
+              </p>
+            </div>
+          </li>
+          <li  class="col-md-4">
+            <div class="front" style="background: #203954">
+              <h6>Engineered magnetosensitive fluorescent proteins</h6>
+              <p>
+                Published in Nature!
+                <br>
+                We recently created a new class of magnetosensitive fluorescent proteins (MFPs), 
+                which we now show overcome these challenges and represent the first biological quantum-based 
+                sensor that functions at physiological conditions and in living cells.
+                <br>
+                <br>
+                <img src="assets/img/maglov.png" class="img-fluid" width="400"  height="100" alt="">
+              </p>
+            </div>
+            <div class="back" style="background: #020a20">
+            <h6>Links</h6>
+              <p>                
+                <a href="https://www.nature.com/articles/s41586-025-09971-3">Nature - Article</a>
+                <br>
+                <a href="https://www.nature.com/articles/d41586-026-00204-9">Nature - News</a>
+                <br>
+                <a href="https://www.science.org/content/article/magnetically-sensitive-proteins-could-lead-new-imaging-tools-and-remote-controlled">Science - News</a>
+                <br>
+                <a href="https://www.ox.ac.uk/news/2026-01-21-oxford-team-engineer-quantum-enabled-proteins-opening-new-frontier-biotechnology">University of Oxford - News</a>
+                <br>
+                <a href="https://www.eurekalert.org/news-releases/1113027">EurekAlert!</a>
+                <br>
+                <a href="https://phys.org/news/2026-01-quantum-enabled-proteins-frontier-biotechnology.html">Phys.org</a>
+                <br>
+                <a href="https://www.genengnews.com/topics/omics/engineered-proteins-use-quantum-spin-resonance-for-biological-sensing-in-bacteria/">GEN News</a>
+                <br>
+                <a href="https://www.geneonline.com/researchers-use-quantum-spin-resonance-in-engineered-proteins-for-multimodal-sensing/">Gene Online</a>
+                <br>
+                <a href="https://www.miragenews.com/quantum-proteins-engineered-ushering-biotech-1605604/">Mirage News</a>
+              </p>
+          </div>
+          </li>
+        </div>
+        </ul>
+      <br>
+      <li class="section-title">
+      <h3 style="color: #fff;">Publication List</h3>
+      <h5 style="color: #fff;"><sup>#</sup> First author, * Corresponding author</h5>
+      </li>
+      <br>
+      <div class="col-md-8 offset-md-2">
+      <h4 style="color: #fff;">[20] M. Seki<sup>#</sup>, S. Aizawa, Y. Shigeno, N. Maita, S. Chen, M. Kato, S. Ogasawara, T. Murata, <b>L. M. Antill*</b>, H. Ishiwata*, <a href="https://www.biorxiv.org/content/10.64898/2026.10.19.760020v1">Organelle-Specific pH Quantification Using a Protein-Based Quantum Sensor</a>, <i>bioRxiv</i>, 2026</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[19] J. Y. Sung<sup>#</sup>*, <b>L. M. Antill</b>, J. H. Cheong*, <a href="https://www.biorxiv.org/content/10.64898/2026.07.15.738821v2">Structure-defined amplification of spin-dependent radical-pair reactivity in mitochondrial complex I</a>, <i>bioRxiv</i>, 2026</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[18] Y. Ki<sup>#</sup>, S. Choi, S. Kim, C. Woo, D. Park, Y. Son, Y. Lee, H. G. Kang, H. Oh, W. Chung, J. Y. Shin*, <b>L. M. Antill*</b>, H. Lee*, <a href="">Upstream Spin Control of Singlet Oxygen Generation through Radical Pair Dynamics</a>, <i>Angew. Chem. Int. Ed., In Press</i>, 2026 (IF 16.1; JCR 12/175)</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[17] R. Bartölke<sup>#</sup>, K. B. Henbest<sup>#</sup>, J. Schmidt<sup>#</sup>, T. Kasahara, D. R. Cubbin, J. Gravell, M. Bassetto, G. Dautaj, T. L. Pitcher, P. D. F. Murton, G. Saberamoli, J. Forst, M. Khazani, S. Apte, C. Olavesen, H. Hayward, O. Paré-Labrosse, 
+        <b>L. M. Antill</b>, J. Xu, P. J. Hore*, C. R. Timmel*, S. R. Mackenzie*, H. Mouritsen*, <a href="">Magnetic 
+          sensitivity of cryptochrome 4a in domesticated quail with migratory origins</a>, <i>J. R. Soc. Interface, In Press</i>, 2026 (IF 3.7; JCR 22/72)</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[16] <b>L. M. Antill</b><sup>#</sup>*, J. K. Baidoo, L. Gerhards*, <a href="https://www.biorxiv.org/content/10.64898/2026.02.27.708212v2">Revealing essential properties for enhanced quantum sensing in engineered AsLOV2 proteins</a>, <i>bioRxiv</i>, 2026</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[15] K. Hino<sup>#</sup>*, D. S. Frantzov, Y. Kurashige, <b>L. M. Antill*</b>, <a href="https://pubs.aip.org/aip/jcp/article/164/8/084101/3380962/Introduction-to-modeling-radical-pair-quantum-spin">Introduction to modelling radical pair quantum spin dynamics with tensor networks</a>, <i>J. Chem. Phys.</i>, 164, 084101, 2026 (IF 3.1; JCR 7/35)</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[14] R. Bartölke<sup>#</sup>, K. B. Henbest<sup>#</sup>, J. Schmidt<sup>#</sup>, T. Kasahara, D. R. Cubbin, J. Gravell, M. Bassetto, G. Dautaj, T. L. Pitcher, P. D. F. Murton, G. Saberamoli, J. Forst, M. Khazani, S. Apte, C. Olavesen, H. Hayward, O. Paré-Labrosse, 
+        <b>L. M. Antill</b>, J. Xu, P. J. Hore*, C. R. Timmel*, S. R. Mackenzie*, H. Mouritsen*, <a href="https://www.biorxiv.org/content/10.64898/2026.02.19.706734v1">Magnetic 
+          sensitivity of cryptochrome 4a in domesticated quail with migratory origins</a>, <i>bioRxiv</i>, 2026</h4>
+      <h5 style="color: #fff;"><b>Related Links</b></h5>
+      <a href="https://ora.ox.ac.uk/objects/uuid:0c2433b9-0eae-42da-9d2f-3258af43ea5b">Data Set</a>
+      <br>      
+      <br>
+      <br>
+      <h4 style="color: #fff;">[13] G. Abrahams<sup>#</sup>*, A. Štuhec, V. Spreng, R. Henry, I. Kempf, J. James, K. Sechkar, S. Stacey, V. Trelles-Fernandez, <b>L. M. Antill</b>, C. R. Timmel, J. J. Miller, M. Ingaramo, A. York, J. P. Tetienne, and
+      H. Steel*, <a href="https://www.nature.com/articles/s41586-025-09971-3">Quantum Spin Resonance in Engineered Proteins for Multimodal Sensing</a>, <i>Nature</i>, 649, 1172-1179, 2026 (IF 50.5; JCR 1/72)</h4>
+      <h5 style="color: #fff;"><b>Press Releases</b></h5>
+      <a href="https://www.nature.com/articles/d41586-026-00204-9">Nature - News</a>
+      <br>
+      <a href="https://www.science.org/content/article/magnetically-sensitive-proteins-could-lead-new-imaging-tools-and-remote-controlled">Science - News</a>
+      <br>
+      <a href="https://www.ox.ac.uk/news/2026-01-21-oxford-team-engineer-quantum-enabled-proteins-opening-new-frontier-biotechnology">University of Oxford - News</a>
+      <br>
+      <a href="https://www.eurekalert.org/news-releases/1113027">EurekAlert!</a>
+      <br>
+      <a href="https://phys.org/news/2026-01-quantum-enabled-proteins-frontier-biotechnology.html">Phys.org</a>
+      <br>
+      <a href="https://www.genengnews.com/topics/omics/engineered-proteins-use-quantum-spin-resonance-for-biological-sensing-in-bacteria/">GEN News</a>
+      <br>
+      <a href="https://www.geneonline.com/researchers-use-quantum-spin-resonance-in-engineered-proteins-for-multimodal-sensing/">Gene Online</a>
+      <br>
+      <a href="https://www.miragenews.com/quantum-proteins-engineered-ushering-biotech-1605604/">Mirage News</a>
+      <br>
+      <h5 style="color: #fff;"><b>Related Links</b></h5>
+      <a href="https://doi.org/10.5281/zenodo.14500235">Zonodo Data Set</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[12] K. Hino<sup>#</sup>*, D. S. Frantzov, Y. Kurashige, <b>L. M. Antill*</b>, <a href="https://doi.org/10.48550/arXiv.2509.22104">Introduction to modelling radical pair quantum spin dynamics with tensor networks</a>, <i>arXiv</i>, 2025</h4>
+      <h5 style="color: #fff;"><b>Press Releases</b></h5>
+      <a href="https://quantumzeitgeist.com/tensor-quantum-networks-model-radical-pair-spin-dynamics-nuclear-spins/">Quantum Zeitgeist</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[11] J. Gravell<sup>#</sup>, P. D. F. Murton<sup>#</sup>, T. L. Pitcher, K. B. Henbest, J. Schmidt, M. M. Buffett, G. Moise, A. S. Gehrckens, D. R. Cubbin, A. Štuhec, <b>L. M. Antill</b>, O. Paré-Labrosse, M. Bassetto, 
+        G. Saberamoli, J. Xu, C. Langebrake, M. Liedvogel, E. Schleicher, S. Weber, R. Bartölke*, H. Mouritsen*, P. J. Hore*, S. R. Mackenzie*, C. R. Timmel*, <a href="https://pubs.acs.org/doi/10.1021/jacs.4c14037">Spectroscopic characterisation of radical pair photochemistry in 
+        non-migratory avian cryptochromes: magnetic field effects in <i>Gg</i>Cry4a</a>, <i>J. Am. Chem. Soc.</i>, 147, 28, 24286-24298, 2025 (IF 14.5; JCR 15/175)</h4>
+      <br>      
+      <br>
+      <h4 style="color: #fff;">[10] <b>L. M. Antill<sup>#</sup>*</b>, M. Kohmura, C. Jimbo, and K. Maeda, <a href="https://www.nature.com/articles/s41566-024-01593-x">Introduction of magneto-fluorescence fluctuation microspectroscopy for investigating quantum effects in
+      biology</a>, <i>Nat. Photon.</i>, 19, 178–186, 2025 (IF 32.3; JCR 1/98)</h4>
+      <h5 style="color: #fff;"><b>Press Releases</b></h5>
+      <a href="https://www.nature.com/articles/s41566-025-01614-3">Nature Photonics News & Views</a>
+      <br>
+      <a href="https://andor.oxinst.com/learning/view/article/mffms:-high-sensitivity-detection-of-quantum-spin-effects-in-biomolecules">Oxford Instruments Andor - Application Note</a>
+      <br>
+      <a href="https://www.azooptics.com/News.aspx?newsID=30141">Azo Optics</a>
+      <br>
+      <h5 style="color: #fff;"><b>Related Links</b></h5>
+      <a href="https://doi.org/10.6084/m9.figshare.27231846">Figshare Data Set</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[09] G. Abrahams<sup>#</sup>*, A. Štuhec, V. Spreng, R. Henry, I. Kempf, J. James, K. Sechkar, S. Stacey, V. Trelles-Fernandez, <b>L. M. Antill</b>, C. R. Timmel, J. J. Miller, M. Ingaramo, A. York, J. P. Tetienne, and
+      H. Steel*, <a href="https://www.biorxiv.org/content/10.1101/2024.11.25.625143v3">Quantum Spin Resonance in Engineered Magneto-Sensitive Fluorescent Proteins Enables Multi-Modal Sensing in Living Cells</a>, <i>bioRxiv</i>, 2024</h4>
+      <h5 style="color: #fff;"><b>Related Links</b></h5>
+      <a href="https://doi.org/10.5281/zenodo.14500235">Zonodo Data Set</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[08] <b>L. M. Antill<sup>#</sup>*</b> and E. Vatai<sup>#</sup>*, <a href="https://pubs.acs.org/doi/10.1021/acs.jctc.4c00887">RadicalPy: a tool for spin dynamics simulations</a>, <i>J. Chem. Theory Comput.</i> 21, 20, 9488–9499, 2024 (IF 5.7; JCR 4/35)</h4>
+      <h5 style="color: #fff;"><b>Related Links</b></h5>
+      <a href="https://github.com/Spin-Chemistry-Labs/radicalpy">Github Repo</a>
+      <br>
+      <a href="https://radicalpy.readthedocs.io/en/latest/">Documentation</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[07] M. Hanić<sup>#</sup>, <b>L. M. Antill<sup>#</sup></b>, A. S. Gehrckens<sup>#</sup>, J. Schmidt, K. Görtemaker, R. Bartölke, T. J. El-Baba, J. Xu, K. W. Koch, H. Mouritsen, J. L. P. Benesch, P. J. Hore, and I. A. Solov’yov*,
+      <a href="https://pubs.acs.org/doi/10.1021/acs.jpcb.3c01305">Dimerization of European robin cryptochrome 4a</a>, <i>J. Phys. Chem. B</i> 127, 28, 6251–6264, 2023 (IF 2.8; JCR 92/161)</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[06] M. Hanić<sup>#</sup>, <b>L. M. Antill<sup>#</sup></b>, A. S. Gehrckens<sup>#</sup>, J. Schmidt, K. Görtemaker, R. Bartölke, T. J. El-Baba, J. Xu, K. W. Koch, H. Mouritsen, J. L. P. Benesch, P. J. Hore, and I. A. Solov’yov*,
+      <a href="https://www.biorxiv.org/content/10.1101/2023.04.11.536350v1">Dimerisation of European robin cryptochrome 4a</a>, <i>bioRxiv</i>, 2023</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[05] <b>L. M. Antill<sup>#</sup></b>, S. Takizawa, S. Murata, and J. R. Woodward*, <a href="https://www.tandfonline.com/doi/full/10.1080/00268976.2018.1524525">Photoinduced flavin-tryptophan electron transfer across vesicle membranes generates magnetic field
+      sensitive radical pairs</a>, <i>Mol. Phys.</i> 117, 2594–2603, 2019 (IF 1.6; JCR 24/35)</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[04] <b>L. M. Antill<sup>#</sup></b> and J. R. Woodward*, <a href="https://pubs.acs.org/doi/10.1021/acs.jpclett.8b01088">Flavin Adenine Dinucleotide Photochemistry Is Magnetic Field Sensitive at Physiological pH</a>, <i>J. Phys. Chem. Lett.</i> 9, 2691–
+      2696, 2018 (IF 4.9; JCR 6/35)</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[03] <b>L. M. Antill<sup>#</sup></b>, J. P. Beardmore<sup>#</sup>, and J. R. Woodward*, <a href="https://pubs.aip.org/aip/rsi/article-abstract/89/2/023707/362707/Time-resolved-optical-absorption-microspectroscopy?redirectedFrom=fulltext">Time-resolved optical absorption microspectroscopy of magnetic field sensitive flavin photochemistry</a>, <i>Rev.
+      Sci. Instrum.</i> 89, 023707, 2018 (IF 1.3; JCR 50/63)</h4>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[02] J. P. Beardmore<sup>#</sup>, <b>L. M. Antill<sup>#</sup></b>, and J. R. Woodward*, <a href="https://onlinelibrary.wiley.com/doi/10.1002/anie.201502591">Optical Absorption and Magnetic Field Effect Based Imaging of Transient Radicals</a>, <i>Angew. Chem. Int. Ed.</i>
+      54, 8494–8497, 2015 (IF 16.1; JCR 12/175)</h4>
+      <h5 style="color: #fff;"><b>Press Releases</b></h5>
+      <a href="https://www.u-tokyo.ac.jp/focus/en/press/p_20150605.html">The University of Tokyo</a>
+      <br>
+      <a href="https://www.u-tokyo.ac.jp/focus/ja/articles/a_00386.html">The University of Tokyo (日本語)</a>
+      <br>
+      <a href="https://www.sciencedaily.com/releases/2015/06/150604104145.htm">Science Daily</a>
+      <br>
+      <a href="https://www.nanowerk.com/nanotechnology-news/newsid=40317.php">Nanowerk</a>
+      <br>
+      <a href="https://phys.org/news/2015-06-microscopic-approach-magnetic-sensitivity-animals.html">Phys.org</a>
+      <br>
+      <a href="https://www.eurekalert.org/news-releases/552204">EurekAlert!</a>
+      <br>
+      <br>
+      <br>
+      <h4 style="color: #fff;">[01] <b>L. M. Antill<sup>#</sup></b>, M. M. Neidhardt, J. Kirres, S. Beardsworth, M. Mansueto, A. Baro, and S. Laschat*, <a href="https://www.tandfonline.com/doi/abs/10.1080/02678292.2014.896052">Ionic liquid crystals derived from guanidinium salts: induction of columnar mesophases by bending of the cationic core</a>, 
+        <i>Liq. Cryst.</i> 41, 976–985, 2014 (IF 2.4; JCR 10/26) </h4>
+      <br>
+      <br>
+        </div>
+      </div>
+    </section>
+<!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
+      <div class="container" style="text-align: center;">
+      <div class="section-title">
+        <h2>PI: Lewis M. Antill</h2>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        <img src="assets/img/Lewis_Antill2.jpg" class="rounded" width="250"  height="325" alt="...">
+        <br>
+        <br>
+      </div>
+        <p>Lewis is a son and a grandson of a mechanical engineer and a master carpenter, respectively, which led to him tinkering in the family workshops from the age of four.
+          The skills developed through the course of his childhood have proven invaluable during his academic career as a spin chemist who specialises in developing experimental techniques for understanding quantum spin effects in biological systems. 
+He is a pioneer of magnetic field effect-based microspectroscopy, in which seminal papers were published during his PhD. His PhD thesis at The University of Tokyo (2014-2018) focused on developing transient optical absorption-based
+          microspectroscopy for investigating flavin-based spin-correlated radical pairs (see <a href="https://onlinelibrary.wiley.com/doi/10.1002/anie.201502591">Angew. Chem. Int. Ed.</a> and 
+          <a href="https://pubs.aip.org/aip/rsi/article/89/2/023707/362707/Time-resolved-optical-absorption-microspectroscopy">Rev. Sci. Instrum.</a>). 
+          The development of this high-sensitivity instrumentation led to the discovery of magnetosensitive photochemistry of flavin adenine dinucleotide (FAD) at physiological pH 
+          (see <a href="https://pubs.acs.org/doi/10.1021/acs.jpclett.8b01088">J. Phys. Chem. Lett.</a>) and the first reported low field effect (LFE) on FAD photochemistry, the mechanism by which migratory birds are proposed to sense the geomagnetic field to navigate across the world (see <a href="https://onlinelibrary.wiley.com/doi/10.1002/anie.201502591">Angew. Chem. Int. Ed.</a>).
+          His efforts were awarded with a Best Poster Prize at the 2017 Spin Chemistry Meeting, The First National High School Memorial Award 
+          (<a href="https://ja.wikipedia.org/wiki/%E4%B8%80%E9%AB%98%E8%A8%98%E5%BF%B5%E8%B3%9E">一高記念賞</a>) and graduated as valedictorian (卒業生代表).
+        </p>
+        <p>
+          During his JSPS Postdoctoral Fellowship (2018-2019, nominated by The Royal Society) at Saitama University and his independent JST PRESTO (さきがけ) Research Fellowship (2019-2023), he developed the most sensitive magnetic field effect-based technique to date, named magneto-fluorescence fluctuation microspectroscopy (MFFMS), 
+          a fluorescence-based microspectroscope that enables quantum spin effects on biomolecules to be observed at single-photon levels.
+          This work was awarded a Best Presentation Award and Best Poster Prizes (by students) at domestic and international conferences (<a href="https://www.saitama-u.ac.jp/news_archives/2021/2021-0927-1435-9.html">here</a> and <a href="https://www.saitama-u.ac.jp/news_archives/2021/2021-1026-1029-9.html">here</a>) and was recently
+          published in a <a href="https://www.nature.com/articles/s41566-024-01593-x">Nature Photonics</a> and featured in <a href="https://www.nature.com/articles/s41566-025-01614-3">Nature Photonics News & Views</a>.
+        </p>
+        <p>
+          During this time, he started to co-develop the open-source object-oriented spin dynamics software RadicalPy, which was recently published in the 
+          <a href="https://pubs.acs.org/doi/10.1021/acs.jctc.4c00887">Journal of Chemical Theory and Computation</a>. This software is designed to provide a versatile framework for students and researchers to perform
+          correct and complex radical pair spin dynamics simulations with relative ease.
+        </p>
+        <p>
+          He then moved to the University of Oxford in early 2023 as a Research Associate to investigate quantum phenomena in cryptochrome 
+          proteins for avian magnetoreception and singlet fission materials. He was shortlisted for a Junior Research Fellowship (JRF) at New College, 
+          University of Oxford before deciding to move to S. Korea, where since December 2024, he has been running his own group that focuses on 
+          understanding the influence of quantum effects on biological function and their medical applications in the Institute of Quantum Biophysics (IQB) 
+          at Sungkyunkwan University (SKKU) and more recently in <a href="https://k-bigheart.postech.ac.kr/html/main/main.php">K-BIGHEART</a> at POSTECH.
+        </p>
+        <p>
+          He is currently organising and running the Spin Chemistry Graduate Seminar Series (SCGSS), whose aim is to give graduate students the opportunity to present their
+          research, in English, in an online conference format.
+          His contributions to the field of spin chemistry were recognised and awarded with the honour of becoming the youngest member of the prestigious 
+          <a href="https://spin-chemistry-community.github.io/committee/">International Spin Chemistry Committee</a> and appointed as a Visiting Professor at the University of Oxford in 2024. He is also a Guest Editor for 
+          PLOS Computational Biology and a Member of the Royal Society of Chemistry and Royal Microscopical Society.
+        </p>
+        <br>
+        <h3>Professional Experience</h3>
+        <h6>
+          <b>Research Assistant Professor (Principal Investigator)</b>
+          Pohang University of Science and Technology, S. Korea - 2026/03-Present
+        </h6>
+        <h6>
+          <b>Visiting Professor</b>
+          University of Oxford, UK - 2024/12-Present
+        </h6>
+        <h6>
+          <b>Research Professor (Principal Investigator)</b>
+          Sungkyunkwan University, S. Korea - 2024/12-2026/02
+        </h6>
+        <h6>
+          <b>Research Associate in Laser Photochemistry and Spectroscopy</b>
+          University of Oxford, UK - 2023/04-2024/11
+          <br>Advisors: Prof. Peter J. Hore, Prof. Christiane R. Timmel, Prof. Stuart R. Mackenzie
+        </h6>
+        <h6>
+          <b>Independent PRESTO Researcher / Special Project Researcher</b>
+          Japan Science and Technology Agency / Saitama University, Japan - 2019/10-2023/03
+        </h6>
+        <h6>
+          <b>JSPS Postdoctoral Fellowship for Research in Japan</b>
+          Saitama University, Japan - 2018/10-2019/09
+          <br>Advisor: Prof. Kiminori Maeda
+          <br>Nominated by The Royal Society
+        </h6>
+        <br>
+        <h3>Education</h3>
+        <h6>
+          <b>Ph. D. in Environmental Sciences</b>
+          The University of Tokyo, Japan - 2014-2018
+          <br>Thesis: Spatially resolved microspectroscopy of flavin-based magnetosensitive (フラビンに基づく磁気感受性光化学の空間分解顕微分光）
+          <br>Graduated as Valedictorian (卒業生代表)
+          <br>The First National High School Memorial Award (一高記念賞)
+          <br>Supervisor: Prof. Jonathan R. Woodward
+        </h6>
+        <h6>
+          <b>M. Chem. in Chemistry (with a Year Abroad)</b>
+          University of Leicester, UK (Year abroad: University of Stuttgart, Germany) - 2010-2014
+          <br>Royal Society of Chemistry Accredited Degree
+          <br>Fourth year thesis: The determination of total atmospheric hydroxyl radical reactivity with the development of the comparative reactivity method - First Class
+          <br>Supervisor: Prof. Paul S. Monks
+          <br>Third year thesis: Liquid crystalline aryl guanidinium ions: effects of bending on the mesomorphic properties - First Class
+          <br>Supervisor: Prof. Dr. Sabine Laschat
+        </h6>
+        <br>
+        <h3>Awards</h3>
+        <h6>
+          <b>SEST Young Investigator Award (SEST 奨励賞)</b>
+          The 64th Annual Meeting of the Society of Electron Spin Science and Technology (第６４回電子スピンサイエンス学会年会) - 2025/11
+        </h6>  
+        <h6>
+          <b>Quantum Biology - Best Researcher Award</b>
+          AMO Physics - 2025/03
+        </h6>    
+        <h6>
+          <b>Best Presentation Award</b>
+          The 3rd Annual Meeting of the Quantum Life Science Society Conference (第３回量子生命科学会) - 2021/09
+        </h6>
+        <h6>
+          <b>EFEPR Scholarship</b> International EPR (ESR) Society - 2019/11
+        </h6>
+        <h6>
+          <b>The First National High School Memorial Award (一高記念賞)</b> Best academic performance and dissertation in the year - 2019/03
+        </h6>
+        <h6>
+          <b>Valedictorian (卒業生代表)</b> The University of Tokyo - 2018/09
+        </h6>
+        <h6>
+          <b>Best Poster Prize</b> Spin Chemistry Meeting 2017 (Taylor & Francis) - 2017/09
+        </h6>
+        <h6>
+          <b>2017 International Conference Travel Grant</b> The University of Tokyo - 2017/05
+        </h6>
+        <h6>
+          <b>Member of the Royal Society of Chemistry</b> - 2016
+        </h6>
+        <h6>
+          <b>MEXT Scholarship for Ph. D.</b> - 2014/08
+        </h6>
+        <h6>
+          <b>ERASMUS Scholarship for M. Chem.</b> - 2012/07
+        </h6>
+        <br>
+        <h3>Teaching Experience</h3>
+        <h6>
+          <b>Student Supervisor</b>
+          Saitama University, University of Oxford, Sungkyunkwan University - 2019-Present
+        </h6>
+        <h6>
+          <b>Guest Lecturer</b>
+          Saitama University, Japan - 2019-2023
+        </h6>
+        <h6>
+          <b>JSPS Science Dialogue Lecture</b>
+          Sendai Seiryo Secondary School, Japan - 2019
+        </h6>
+        <h6>
+          <b>Teaching Assistant</b>
+          The University of Tokyo, Japan - 2015-2017
+        </h6>
+        <h6>
+          <b>Komaba Writers Studio Teaching Assistant</b>
+          The University of Tokyo, Japan - 2015-2016
+        </h6>
+        <h6>
+          <b>Sports England Level 2 Coach</b>
+          British Ju-Jitsu Association Governing Body, UK - 2011-2014
+        </h6>
+        <br>
+        <h3>Funding</h3>
+        <h6>
+          <b>JST ASPIRE for Rising Scientists (Co-PI)</b> 60 million JPY - 2024/10-2027/09
+        </h6>
+        <h6>
+          <b>JST PRESTO International Reinforcement Support (PI)</b> 3 million JPY - 2020/10-2021/03
+        </h6>
+        <h6>
+          <b>JST PRESTO (Quantum Bio) Creation of Life Science Basis By Using Quantum Technology (PI)</b> 40 million JPY - 2019/10-2023/03
+        </h6>
+        <h6>
+          <b>Grant-in-Aid for JSPS Research Fellow  (Co-PI)</b> 4 million JPY - 2018/10-2019/09
+        </h6>
+        <br>
+       <h3>Professional Affiliations</h3>
+        <h6>
+          <b>International Spin Chemistry Committee</b>
+        </h6>
+        <h6>
+          <b>Royal Society of Chemistry (MRSC)</b>
+        </h6>
+        <h6>
+          <b>Royal Institute of Navigation (MRIN)</b>
+        </h6>
+        <h6>
+          <b>Royal Microscopical Society</b>
+        </h6>
+        <h6>
+          <b>International EPR (ESR) Society</b>
+        </h6>
+        <h6>
+          <b>Society of Electron Spin Science and Technology (SEST)</b>
+        </h6>
+        <h6>
+          <b>European Microscopy Society</b>
+        </h6>
+        <h6>
+          <b>International Society of Magnetic Resonance</b>
+        </h6>
+        <br>
+      </div>
+    </section><!-- End Our Team Section -->
+
+    <!-- <section id="" class="why-us" style="color: #fff;"> -->
+    <section id="members" class="why-us" style="color: #fff;">
+      <div class="container" style="text-align: center;">
+        <div class="section-title">
+          <h2 style="color: #fff;">Members</h2>
+          <h3>Graduate Students (in alphabetical order)</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <!-- <img src="assets/img/khanh.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Khanh Van Do (Đỗ Vân Khanh, with <a href="https://www.minibrainlab.com/">Minibrain Lab</a>, SKKU)</h4>
+            <h5>PhD Candidate</h5>
+            <p>Quantum spin effects on nanotube models for energy transfer in neurodegenerative diseases</p> -->
+            <br>
+            <br>
+            <img src="assets/img/damyan.png" class="rounded" width="282"  height="" alt="...">
+            <h4>Damyan Frantzov (with Christiane Timmel (Oxford))</h4>
+            <h5>DPhil Student</h5>
+            <p>RadicalPy software development</p>
+            <br>
+            <br>
+            <!-- <img src="assets/img/Gaeun.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Gaeun Lee (이가은, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>PhD Student</h5>
+            <p>TBD</p> -->
+            <!-- <br> -->
+            <!-- <img src="assets/img/jones.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Beniel Jones Rajasekaran (பெனியேல் ஜோன்ஸ் இராஜசேகரன், with <a href="https://sites.google.com/view/lamp4ppm/home?authuser=0">LAMP4PPM Lab</a>, SKKU)</h4>
+            <h5>PhD Candidate</h5>
+            <p>Development of room-temperature qubits and qubit enhanced spintronics sensors</p>
+            <br>
+            <br>
+            <img src="assets/img/chihe.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Chihe Ko (고지해, with <a href="https://www.bionanophotonics-skku.com/">BNP Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br>
+            <img src="assets/img/dongjae.jpeg" class="rounded" width="282"  height="" alt="...">
+            <h4>Dongjae Kim (김동재, with <a href="https://www.bionanophotonics-skku.com/">BNP Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br>
+            <img src="assets/img/HyeongJin.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Hyeong Jin Ahn (안형진, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br> -->
+            <!-- <img src="assets/img/joseph.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Joseph Baidoo (Papa Kojo Badu)</h4>
+            <h5>Master's Student</h5>
+            <p>Computational studies on protein-based quantum sensors</p>
+            <br> -->
+            <!-- <br> -->
+            <img src="assets/img/poyang.png" class="rounded" width="282"  height="" alt="...">
+            <h4>Po-Yang Chen (with Huan-Yu Ku (NTNU) and Neill Lambert (RIKEN))</h4>
+            <h5>Master's Student</h5>
+            <p>Open quantum systems</p>
+            <!-- <br>
+            <img src="assets/img/minjoon.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Minjoon An (안민준, with <a href="https://www.minibrainlab.com/">Minibrain Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>Quantum coherence in microtubules for reconstructing neuronal circuits</p>
+            <br>
+            <br>
+            <img src="assets/img/Jeeho.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Sharon Jeeho Ham (함지호, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br>
+            <img src="assets/img/minwoo.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Minwoo Kim (김민우, with <a href="https://www.minibrainlab.com/">Minibrain Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>Quantum coherence in solitons for ATP restoration in neurodegenerative diseases</p>
+            <br>
+            <br>
+            <img src="assets/img/TaeHoon.png" class="rounded" width="282"  height="" alt="...">
+            <h4>Tae Hoon Kim (김태훈, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br>
+            <img src="assets/img/Kiyeon.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Kiyeon Park (박기연, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p> -->
+            <!-- <br>
+            <br>
+            <img src="assets/img/JungHyun.jpg" class="rounded" width="282"  height="" alt="...">
+            <h4>Jung Hyun Yoo (유정현, with <a href="https://www.mtbslab.com/home">MTBS Lab</a>, SKKU)</h4>
+            <h5>MS/PhD Student</h5>
+            <p>TBD</p>
+            <br>
+            <br> -->
+          </ul>
+        </div>
+        <div class="section-title">
+          <h2 style="color: #fff;">Alumni</h2>
+          <h3>Doctoral</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>Kentaro Hino (樋野 健太郎, with Kurashige Group, Kyoto University), 2026</li>
+          </ul>
+          <h3>Master's</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>Joseph Kojo Baidoo (Papa Kojo Badu, Sungkyunkwan University), 2026</li>
+            <li>Mizuki Kohmura (香村 泉希, with Maeda Lab, Saitama University), 2022</li>
+            <li>Ayumi Fukai (深井 歩実, with Maeda Lab, Saitama University), 2022</li>
+            <li>Chiho Jimbo (神保 知歩, with Maeda Lab, Saitama University), 2023</li>
+            <li>Minori Fujita (藤田 みのり, with Maeda Lab, Saitama University), 2023 </li>
+          </ul>
+          <h3>Undergraduate</h3>
+          <ul style="list-style-type: none; padding: 0;">
+            <li>Hiroya Matsuda (松田 大弥, with Maeda Lab, Saitama University), 2020</li>
+            <li>Wataru Fushimoto (伏本 航, with Maeda Lab, Saitama University), 2021</li>
+            <li>Ai Hatayama (畑山 愛, with Maeda Lab, Saitama University), 2022</li>
+          </ul>
+          <img src="assets/img/saitaima_1.jfif" class="rounded" width="282"  height="325" alt="...">
+          <img src="assets/img/saitaima_2.jfif" class="rounded" width="244"  height="325" alt="...">
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= Invited Talks Section ======= -->
+    <section class="team">
+      <div class="container" style="text-align: center;">
+        <h3 id="talks">Invited Talks</h3>
+        <h6>
+          <b>[39] "Quantum sensing for biomedical applications"
+          <br>International Conference on Biophysics and Biomedical Sciences 2026, 2026/11/23-28, Busan, S. Korea</b>
+        </h6>
+        <h6>
+          <b>[38] "The ins and outs of AsLOV2-derived quantum sensors"
+          <br>12th Q-Bio Innovation Forum 2026, 2026/10/06, Yonsei University, S. Korea</b>
+        </h6>
+        <!-- Video belonging to talk [38] -->
+        <div style="margin: 15px auto 30px auto; max-width: 560px;">
+          <div style="position: relative; width: 100%;
+                      aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/tgknbc7kQhQ?si=gx9nhj3-QdmSiJNd&amp;start=6068""
+              title="Talk 38 - Q-Bio Innovation Forum"
+              style="position: absolute; top: 0; left: 0;
+                    width: 100%; height: 100%; border: 0;"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write;
+                    encrypted-media; gyroscope; picture-in-picture;
+                    web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <h6>
+          <b>[37] "The ins and outs and applications of protein-based quantum sensors"
+          <br>Spin Chemistry Meeting 2026, 2026/09/20-24, Padova, Italy</b>
+        </h6>
+        <h6>
+          <b>[36] "The ins and outs of AsLOV2-derived quantum sensors"
+          <br>NIH Quantum Special Interest Group, 2026/08/31, Online, USA</b>
+        </h6>
+        <h6>
+          <b>[35] "Mechanistic insights into the quantum properties of engineered proteins"
+          <br>Biophysics Colloquium Spring 2026, 2026/06/02, Sungkyunkwan University, S. Korea</b>
+        </h6> 
+        <h6>
+          <b>[34] "Experimental and theoretical methods for revealing quantum spin effects in biology"
+          <br>Yonsei University, 2026/03/31, Songdo, S. Korea</b>
+        </h6>  
+        <h6>
+          <b>[33] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>SPIE Photonics West 2026, 2026/01/17-22, San Francisco, USA</b>
+        </h6> 
+        <h6>
+          <b>[32] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>Pacifichem 2025, 2025/12/17, Honolulu, Hawaii</b>
+        </h6>   
+        <h6>
+          <b>[31] "RadicalPy: Open-source quantum spin dynamics software for evaluating quantum spin effects in biology"
+          <br>IQB Colloquium Fall 2025, 2025/12/12, Sungkyunkwan University, S. Korea</b>
+        </h6> 
+        <h6>
+          <b>[30] "Exploration of quantum spin properties in flavins and flavoproteins"
+          <br>Cambridge-SKKU Workshop for Quantum Biology, 2025/12/11, Sungkyunkwan University, S. Korea</b>
+        </h6>  
+        <h6>
+          <b>[29] "Development of flavoprotein-based spin qubits for cellular quantum sensing"
+          <br>2025 Quantum Nexus Conference, 2025/11/28, Seoul, S. Korea</b>
+        </h6>
+        <!-- Video belonging to talk [29] -->
+        <div style="margin: 15px auto 30px auto; max-width: 560px;">
+          <div style="position: relative; width: 100%;
+                      aspect-ratio: 16 / 9;">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/ffNVCOuc9Xw?si=1zpWACR9VWCBXYX1&amp;start=9286"
+              title="Talk 29 - Quantum Nexus Conference"
+              style="position: absolute; top: 0; left: 0;
+                    width: 100%; height: 100%; border: 0;"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write;
+                    encrypted-media; gyroscope; picture-in-picture;
+                    web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        <h6>
+          <b>[28] "Development of high-sensitivity microspectropic methods and spin dynamics software for investigating quantum spin effects in flavin-based radical pairs"
+          <br>64th SEST Meeting, 2025/11/21-23, Gunma, Japan</b>
+        </h6> 
+        <h6>
+          <b>[27] "Development of spectroscopic techniques for investigating quantum spin effects in biological environments"
+          <br>JST-ASPIRE Workshop on Spin-Controlled Photofunctional Materials, 2025/09/29, The University of Tokyo, Japan</b>
+        </h6> 
+        <h6>
+          <b>[26] "Exploration of quantum spin effects in biologically relevant flavins"
+          <br>G-Quantum Bio Summit 2025, 2025/09/22, Suwon, S. Korea</b>
+        </h6> 
+        <h6>
+          <b>[25] "Fluorescence-detected quantum spin effects on spin-correlated radical / triplet pairs"
+          <br>The Inaugural Korean Spin Chemistry Meeting, 2025/08/25, Suwon, S. Korea</b>
+        </h6> 
+        <h6>
+          <b>[24] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>2nd SmoleQ Workshop, 2025/7/23-25, Shizuoka, Japan</b>
+        </h6> 
+        <h6>
+          <b>[23] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>IQB Colloquium Spring 2025, 2025/03/17, Sungkyunkwan University, S. Korea</b>
+        </h6> 
+        <h6>
+          <b>[22] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>Big Quantum Bio Meeting, 2025/02/27, Online</b>
+        </h6> 
+        <h6>
+          <b>[21] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>Institute of Quantum Life Sciences QST, 2025/01/30, Inage, Japan</b>
+        </h6>
+        <h6>
+          <b>[20] "RadicalPy: A tool for spin dynamics simulations"
+          <br>RIKEN 182nd RQC Seminar, 2025/01/29, Wako, Japan</b>
+        </h6>
+        <h6>
+          <b>[19] "Single-photon quantum effects in fluorescent biomolecules"
+          <br>Zasshikai Seminar 1969th, 2025/01/28, The University of Tokyo, Japan</b>
+        </h6>
+        <h6>
+          <b>[18] "Development of microspectroscopy for investigating quantum spin effects in biology and chemistry"
+          <br>IQB Winter Workshop, 2024/12/13, Suwon, S. Korea</b>
+        </h6>
+        <h6>
+          <b>[17] "Development of microspectroscopy and simulation software for investigating quantum effectsin biology"
+          <br>Center for Quantum Nanoscience, 2024/07/06, Seoul, S. Korea</b>
+        </h6>
+        <h6>
+          <b>[16] "Investigation of magnetic field sensitive flavin photochemistry with high-sensitivity microspectroscopy"
+          <br>Big Quantum Bio Meeting, 2023/06/01, Online</b>
+        </h6> 
+        <h6>
+          <b>[15] "Investigation of magnetic field sensitive flavin photochemistry with high-sensitivity microspectroscopy"
+          <br>The 6th Excited-state Functional Chemistry Seminar, 2023/03/13, Kyushu University, Japan</b>
+        </h6>
+        <h6>
+          <b>[14] "Exploring magnetic field effects in biomolecules with high-sensitivity fluorescence fluctuation spectroscopy"
+          <br>The University of Tokyo, 2022/07/14, Tokyo, Japan</b>
+        </h6>
+        <h6>
+          <b>[13] "Spatiotemporal measurement of cryptochromes for animal magnetoreception"
+          <br>Q-LEAP Meeting, 2021/12/23, Saitama, Japan</b>
+        </h6>
+        <h6>
+          <b>[12] "Magnetosensitive radical pair dynamics in protein binding pockets"
+          <br>RIKEN CEMS Excited-State Chemistry of Functional Materials, 2021/01/28, Online, Japan</b>
+        </h6>
+        <h6>
+          <b>[11] "The light fantastic: understanding light and its applications"
+          <br>HiSEP特別セミナー, 2020/12/10, Saitama University, Japan</b>
+        </h6>
+        <h6>
+          <b>[10] "Understanding the photoinduced structural dynamics of cryptochrome proteins"
+          <br>The 58th Annual Meeting of the Biophysical Society of Japan, 2020/09/16-18, Online, Japan</b>
+        </h6>
+        <h6>
+          <b>[09] "Spatiotemporal measurement of cryptochromes for animal magnetoreception"
+          <br>International Workshop on Dynamic Spin Effects in Chemistry 2019, 2019/11/13, Kanagawa University, Japan</b>
+        </h6>
+        <h6>
+          <b>[08] "Animal magnetoreception"
+          <br>JSPS Science Dialogue, 2019/10/05, Sendai Seiryo Secondary School, Japan</b>
+        </h6>
+        <h6>
+          <b>[07] "Animal magnetoreception"
+          <br>Gwangju Institute of Science and Technology, 2019/09/17, Gwangju, S. Korea</b>
+        </h6>
+        <h6>
+          <b>[06] "The light fantastic: understanding light and its applications"
+          <br>第5回HiSEP特別セミナー, 2019/07/25, Saitama University, Japan</b>
+        </h6>
+        <h6>
+          <b>[05] "The light fantastic: understanding light and its applications"
+          <br>HiGEPSオープニング基礎セミナー, 2019/06/22, Saitama University, Japan</b>
+        </h6>
+        <h6>
+          <b>[04] "Spatiotemporal measurement of cryptochromes for animal magnetoreception"
+          <br>Institute of Quantum Life Sciences QST, 2018/10/22, Inage, Japan</b>
+        </h6>
+        <h6>
+          <b>[03] "Microscopic studies of magnetosensitive photochemistry"
+          <br>2nd Kanto Area Spin Chemistry Meeting, 2016/06/24, Saitama, Japan</b>
+        </h6>
+        <h6>
+          <b>[02] "A microscopic approach to observing the magnetosensitivity of photochemical intermediates"
+          <br>Molecular Integrated System and Reaction: Analytical and Constructive Approaches, 2016/03/02, Tokyo, Japan</b>
+        </h6>
+        <h6>
+          <b>[01] "A sub-micron step closer to spatially resolving the magnetosensitivity of photochemically induiced electron transfer reactions of flavins"
+          <br>1st Kanto Area Spin Chemistry Meeting, 2015/07/11, Tokyo, Japan</b>
+        </h6>
+      </div>
+    </section><!-- End Invited Talks Section -->
+    
+
+    <!-- <section id="" class="why-us" style="color: #fff;">
+      <div class="container" style="text-align: center;">
+        <div class="section-title">
+          <h2 style=" color: #fff;">Group Members</h2>
+        </div>
+        <div class="section-title">
+          <h2 style=" color: #fff;">Alumni</h2>
+          * Master's students
+            * Mizuki Kohmura (香村泉希) （QBPC (Maeda) Lab)　(RIKEN 2023/04~)
+            * Ayumi Fukai (深井歩実) （QBPC (Maeda) Lab) (Eurofin 2023/04~)
+            * Chiho Jimbo (神保知歩) （QBPC (Maeda) Lab)
+	          * Minori Fujita (藤田みのり) （QBPC (Maeda) Lab)
+          * Bachelor students
+            * Hiroya Matsuda (松田大弥) （QBPC (Maeda) Lab) (IT company 2021/04~)
+            * Wataru Fushimoto (伏本航) （QBPC (Maeda) Lab)
+            * Ai Hatayama (畑山愛) （QBPC (Maeda) Lab)
+        </div> -->
+  <!-- <div class="text-center"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Click here to request for Demo</button></div>
+
+  <div class="collapse" id="collapseExample">
+    <div class="col-lg-5 col-md-12">
+      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+          <div class="validate"></div>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+          <div class="validate"></div>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please tell us why you need a demo" placeholder="Message"></textarea>
+          <div class="validate"></div>
+        </div>
+        <div class="text-center"><button class="btn btn-info" type="submit">Send Request</button></div>
+      </form>
+    </div>
+  </div>
+      </div>
+    </section> -->
+
+    <!-- ======= Contact Us Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container">
+
+        <div class="row">
+
+          <!-- <div class="col-lg-4 col-md-6">
+            <div class="contact-about">
+              <h3>QUBE Lab</h3>
+              <p>Tackling key questions in quantum biophysics</p>
+              <div class="social-links">
+                <a href="https://www.linkedin.com/in/lewis-m-antill-0144a099/" class="linkedin"><i class="icofont-linkedin"></i></a>
+              </div>
+            </div>
+          </div> -->
+
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-about">
+              <h3>QUBE Lab</h3>
+              <p>Tackling key questions in quantum biophysics</p>
+              <div class="social-links">
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/lewis-m-antill-0144a099/" class="linkedin" target="_blank">
+                  <i class="icofont-linkedin"></i>
+                </a>
+                <!-- ResearchGate -->
+                <a href="https://www.researchgate.net/profile/Lewis-Martyn-Antill" class="researchgate" target="_blank">
+                  <i class="icofont-learn"></i>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/lmantill" class="github" target="_blank">
+                  <i class="icofont-github"></i>
+                </a>
+                <!-- Google Scholar -->
+                <a href="https://scholar.google.com/citations?hl=en&authuser=1&user=w80KNdoAAAAJ" class="google-scholar" target="_blank">
+                  <i class="icofont-brand-google"></i>
+                </a>
+                <!-- ORCID -->
+                <a href="https://orcid.org/0000-0001-9266-5584" class="orcid" target="_blank">
+                  <i class="icofont-hat"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+            
+
+          <div class="col-lg-3 col-md-6">
+            <div class="info">
+              <div>
+                <i class="icofont-google-map"></i>
+                <p><a href="https://k-bigheart.postech.ac.kr/html/main/main.php">K-BIGHEART</a>, POSTECH</p>
+              </div>
+
+              <div>
+                <i class="icofont-envelope"></i>
+                <p>lewisantill@postech.ac.kr</p>
+              </div>
+
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12">
+          <p>
+            Keywords: Spin Chemistry, Quantum Biophysics, Quantum Biology, Quantum Sensing, Microscopy, Spectroscopy, Photochemistry,
+            Spin Dynamics Simulation, Molecular Dynamics Simulation, Computer Programming, Software Design
+          </p>  
+          </div>
+          <!-- <div class="container"> -->
+            <!-- <table border='5'>
+             <tr><td>
+              <table border='0' bgcolor="#36454f">
+               <tr>
+                <td >
+                <img src="https://qubelab.github.io/assets/img/qube_logo_2.png"
+                alt="Welcome to the QUBE Lab" title="Welcome to the QUBE Lab"
+                style="padding:0px; border:0px; width:75%; height: 75%;" />
+               </td>
+        
+               <td style="text-align:right;  width: 200px">
+                 <form action="https://lewisa.pythonanywhere.com/spinchemistrycommunity_signup" method="POST">
+                  Sign up with your email for the latest vacancies:
+                       <input type="email" name="email_address">
+                       <input type="hidden" name="signup_page" value="https://lewisa.pythonanywhere.com/static/thank.html" /> <!--value="https://qubelab.github.io/"-->
+                       <!-- <input type="submit" value="Sign up"> -->
+                       <!-- <BR>Thanks for your interest. -->
+        
+                   <!-- </form> -->
+               <!-- </td> -->
+                    <!-- <td align='right'> -->
+                        <!-- <img src="https://qubelab.github.io/assets/img/qube_logo_2.png" alt="Welcome to the QUBE Lab" -->
+                        <!-- title="Welcome to the QUBE Lab" style="padding:0px; border:0px; width:75%; height: 75%;" /> -->
+                   <!-- </td> -->
+              <!-- </tr> -->
+              <!-- </table> -->
+             <!-- </td></tr> -->
+            <!-- </table> -->
+          <!-- </div> -->
+          <!-- </div> -->
+
+          <!-- <div class="col-lg-5 col-md-12">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validate"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validate"></div>
+              </div>
+              <div class="mb-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div> -->
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Us Section -->
+   
+    <!-- ======= Map Section ======= -->
+    <section class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3227.301200908855!2d129.32254569829416!3d36.012937536668154!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35670149b29dbba1%3A0x47ca861668ab377a!2z67CU7J207Jik7Jik7ZSI7J2064W467Kg7J207IWY7IS87YSwKEJPSUMp!5e0!3m2!1sen!2skr!4v1772718300487!5m2!1sen!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>	</section><!-- End Map Section -->
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Lewis M. Antill</span></strong>. All Rights Reserved
+      </div>
+      
+    </div>
+  </footer><!-- End #footer -->
+
+  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/venobox/venobox.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

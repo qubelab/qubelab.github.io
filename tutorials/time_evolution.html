@@ -26,13 +26,26 @@
     code { overflow-wrap:anywhere; }
     @media(max-width:760px) { .layout { grid-template-columns:1fr; } body {padding:16px;} }
   </style>
-</head>
-<body>
-  <h1>Radical pair time evolution</h1>
-  <p class="lede">An interactive teaching example using a remote Python API and RadicalPy.
-  Adjust the model parameters to plot spin-state populations versus time at a fixed magnetic field.</p>
 
-  <div class="layout">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../pixel-assets/tutorial-theme.css">
+<script src="../pixel-assets/tutorial-theme.js"></script>
+</head>
+<body class="tutorial-page" data-module="02">
+<a href="#tutorialControls" class="tutorial-skip">Skip to simulator controls</a>
+<header class="tutorial-topbar"><div class="tut-shell topbar-inner">
+<a href="../index.html" class="tutorial-brand" aria-label="QUBE Lab homepage"><span class="brand-cube" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="brand-words"><strong>QUBE<b>LAB</b></strong><small>SIMULATION ACADEMY / POSTECH</small></span></a>
+<nav class="tutorial-header-nav" aria-label="Website navigation"><a href="../index.html#software">SOFTWARE HUB</a><a href="../index.html#research">RESEARCH QUESTS</a><a href="../archive.html">CLASSIC ARCHIVE</a></nav>
+<button id="tutorialCrt" class="tut-crt" type="button" aria-label="Toggle CRT visual effect" aria-pressed="true">✦ CRT <span>ON</span></button></div></header>
+<main class="tut-shell tutorial-main" id="tutorialControls"><div class="breadcrumb"><a href="../index.html">QUBE_LAB.EXE</a><b>/</b><a href="../index.html#software">TOOLS</a><b>/</b> MODULE_02</div>
+<section class="tutorial-hero" aria-label="Simulation introduction"><div class="tutorial-hero-copy"><div class="tutorial-kicker">&gt; MODULE 02 / SIMULATION QUEST</div><h1>Time Evolution</h1><p>Follow radical-pair spin populations as the quantum state evolves in time.</p><div class="hero-original-desc">An interactive teaching example using a remote Python API and RadicalPy.
+  Adjust the model parameters to plot spin-state populations versus time at a fixed magnetic field.</div><div class="tutorial-lives">♥ ♥ ♥ <span>READY PLAYER ONE</span></div></div>
+<div class="tutorial-art" aria-hidden="true"><div class="art-star"></div><div class="art-core">⏱</div></div></section>
+<div class="module-label"><span>SELECT A TRAINING MODULE</span><span>PROGRESS 02/05</span></div>
+<nav class="module-trail" aria-label="Explore simulation modules"><a href="energy_levels.html"><span class="module-number">01 / 05</span><span>ENERGY LEVELS</span></a><a href="time_evolution.html" class="active" aria-current="page"><span class="module-number">02 / 05</span><span>TIME EVOLUTION</span></a><a href="mary.html"><span class="module-number">03 / 05</span><span>MAGNETIC FIELD EFFECTS</span></a><a href="anisotropy.html"><span class="module-number">04 / 05</span><span>ANISOTROPY</span></a><a href="relaxation_models.html"><span class="module-number">05 / 05</span><span>RELAXATION</span></a></nav>
+<div class="layout">
     <section class="panel" aria-label="Simulation parameters">
       <label for="api">https://qubelab-spin-api.onrender.com/</label>
       <input id="api" type="url" value="https://qubelab-spin-api.onrender.com"
@@ -100,7 +113,7 @@
       <p id="status" role="status" aria-live="polite"></p>
     </section>
 
-    <section class="panel">
+    <section class="panel controls-panel" aria-label="Simulation controls"><div class="panel-topline"><span>⚙ &nbsp; INPUT PARAMETERS</span><span class="num">01 / 02</span></div>
       <div id="plot" aria-label="Time evolution plot"></div>
       <p id="model" class="note">No simulation has been run yet.</p>
     </section>
@@ -197,5 +210,7 @@
     paper_bgcolor:"rgba(0,0,0,0)",plot_bgcolor:"rgba(0,0,0,0)"
   }, {responsive:true,displaylogo:false});
 </script>
+
+</main><footer class="tutorial-footer"><div class="tut-shell footer-inner"><a href="../index.html#software">← BACK TO QUBE LAB TOOLKIT</a><span>© <span id="tutorialYear">2026</span> QUBE LAB · LEARN THE QUANTUM RULES</span></div></footer>
 </body>
 </html>
