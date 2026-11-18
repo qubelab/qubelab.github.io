@@ -1,0 +1,13 @@
+/* 16-bit theme extensions for advanced radical-pair modules */
+.spin-academy .advanced-divider{font:9px/1.9 var(--pixel);color:var(--gold);border-bottom:1px dashed #6a6899;padding:10px 0;margin:14px 0 18px;letter-spacing:.02em}
+.spin-academy #controls textarea{display:block;width:100%;min-height:110px;resize:vertical;background:#121a37;color:#d7e5ff;border:1px solid #67769e;font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;padding:11px;margin-top:9px}
+.spin-academy #controls textarea:focus,.spin-academy #controls input:focus{outline:2px solid #81e8ce;outline-offset:2px}
+.spin-academy .spin-chart{max-width:100%;overflow:hidden}
+.spin-academy .spin-chart svg{max-width:100%;image-rendering:auto}
+.spin-academy .model-note a{color:var(--mint)}
+.spin-academy .note{font-size:12px;border-left:3px solid var(--gold);padding:10px 12px;background:#202744;color:#d7dafa;line-height:1.6;margin:10px 0 20px}
+.spin-academy .module-trail a{min-width:0}
+.spin-academy .output-panel{min-width:0}
+.spin-academy .metric strong{overflow-wrap:anywhere}
+@media(max-width:760px){.spin-academy .module-trail{grid-template-columns:repeat(2,minmax(0,1fr))}.spin-academy .model-note{padding:16px}.spin-academy .spin-chart{padding:12px 0}}
+@media(prefers-reduced-motion:reduce){.spin-academy *{animation-duration:.01ms!important;transition-duration:.01ms!important}}
