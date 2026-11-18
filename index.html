@@ -12,6 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="pixel-assets/style.css">
   <script defer src="pixel-assets/app.js"></script>
+  <link rel="stylesheet" href="pixel-assets/lab-animation/animation.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
@@ -58,8 +59,8 @@
       </div>
       <div class="hero-visual">
         <div class="game-window">
-          <div class="game-titlebar"><span><i></i><i></i><i></i> QUBE_WORLD.EXE</span><span>STAGE 01/04 <b>✕</b></span></div>
-          <div class="game-scene" role="img" aria-label="16-bit pixel-art quantum biology laboratory featuring Lewis M. Antill as the playable scientist alongside glowing experimental apparatus">
+          <div class="game-titlebar"><span><i></i><i></i><i></i> QUBE_WORLD.EXE</span><span><span id="labStage">STAGE 01/04</span> <b>✕</b></span></div>
+          <div class="game-scene" role="group" aria-label="Animated 16-bit quantum biology laboratory featuring Lewis at experimental stations">
             <svg viewBox="0 0 576 396" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" aria-hidden="true">
               <defs><pattern id="stars" width="89" height="76" patternUnits="userSpaceOnUse"><rect x="15" y="18" width="4" height="4" fill="#9be9e1" opacity=".65"/><rect x="55" y="51" width="3" height="3" fill="#f1dbb7" opacity=".65"/></pattern><pattern id="floorTile" width="48" height="24" patternUnits="userSpaceOnUse"><path d="M0 23H48M47 0V24" stroke="#3b395f" stroke-width="2" opacity=".7" fill="none"/></pattern></defs>
               <rect width="576" height="396" fill="#1b2549"/><rect x="0" y="0" width="576" height="262" fill="#172043"/>
@@ -97,8 +98,12 @@
               <rect x="13" y="357" width="38" height="38" fill="#39466a"/><rect x="23" y="344" width="21" height="19" fill="#4f947f"/><rect x="29" y="329" width="9" height="25" fill="#70b79e"/>
               <rect x="527" y="350" width="33" height="46" fill="#39466a"/><rect x="515" y="338" width="48" height="19" fill="#4f947f"/><rect x="533" y="317" width="11" height="28" fill="#70b79e"/>
             </svg>
-            <span class="game-caption"><span class="indicator"></span> QUANTUM SIGNAL DETECTED</span>
-            <span class="scene-coordinates">X:024 Y:088<br>B:0005 mT</span>
+            <video id="labAnimation" class="lab-animation-video" width="1152" height="792" muted loop playsinline preload="metadata" poster="pixel-assets/lab-animation/lab-poster.png" aria-label="Illustrative animation of the QUBE Lab experimental workflow" tabindex="-1">
+              <source src="pixel-assets/lab-animation/lab-loop.mp4" type="video/mp4">
+            </video>
+            <span class="game-caption"><span class="indicator"></span> <span id="labCaption">QUANTUM SIGNAL DETECTED</span></span>
+            <button type="button" class="lab-animation-toggle" id="labAnimationToggle" aria-label="Play laboratory animation" hidden>▶ PLAY</button>
+            <span class="scene-coordinates"><span id="labCoordinates">X:024 Y:088</span><br><span id="labField">FIELD: STANDBY</span></span>
           </div>
           <div class="game-status"><span><b>♥ ♥ ♥</b> DISCOVERY MODE</span><span>POSTECH · KR <span class="save-icon">▣</span></span></div>
         </div>
@@ -157,5 +162,6 @@
     <section class="contact-section" id="contact" aria-labelledby="contactTitle"><div class="shell contact-card"><div class="contact-decor contact-decor-a" aria-hidden="true">✦</div><div class="contact-decor contact-decor-b" aria-hidden="true">✧</div><div class="section-kicker">> A NEW PLAYER APPROACHES...</div><h2 id="contactTitle">Ready to join<br>the <em>quest?</em></h2><p>We're always excited to connect with curious minds in spin chemistry, quantum biology, physics, and beyond. Reach out with an introduction and CV.</p><a href="mailto:lewisantill@postech.ac.kr?subject=QUBE%20Lab%20Research%20Enquiry" class="pixel-button contact-button">✉ &nbsp; CONTACT THE LAB <span>↗</span></a><span class="contact-email">LEWISANTILL@POSTECH.AC.KR</span></div></section>
   </main>
   <footer class="footer"><div class="shell footer-inner"><div><a class="footer-brand" href="#top">◆ QUBE LAB</a><p>Quantum Understanding of Biological Environments Laboratory<br>POSTECH · Pohang, South Korea</p></div><div class="footer-right"><a href="https://github.com/Spin-Chemistry-Labs/radicalpy" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="people.html#alumni">ALUMNI HALL ↗</a><a href="#top">BACK TO TOP ↑</a><small>© <span id="year">2026</span> QUBE LAB · KEEP EXPLORING</small></div></div></footer>
+  <script src="pixel-assets/lab-animation/animation.js" defer></script>
 </body>
 </html>

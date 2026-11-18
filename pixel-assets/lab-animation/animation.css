@@ -1,0 +1,9 @@
+/* QUBE World animated laboratory. Original SVG remains the no-JS fallback. */
+.game-scene .lab-animation-video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;opacity:0;pointer-events:none;image-rendering:pixelated;}
+.game-scene.lab-video-ready .lab-animation-video{opacity:1;}
+.game-scene.lab-video-ready>svg{visibility:hidden;}
+.game-scene .game-caption,.game-scene .scene-coordinates{z-index:2;}
+.lab-animation-toggle{position:absolute;right:12px;bottom:16px;z-index:3;display:inline-flex;align-items:center;justify-content:center;border:2px solid #637497;background:#10162e;color:#b8f3ec;font:7px/1.8 var(--pixel);padding:9px 10px;cursor:pointer;box-shadow:3px 3px 0 #202442;}
+.lab-animation-toggle[hidden]{display:none;}
+.lab-animation-toggle:hover,.lab-animation-toggle:focus-visible{background:#b8f3ec;color:#10162e;outline:2px solid #f9d19f;outline-offset:2px;}
+@media(max-width:650px){.lab-animation-toggle{font-size:5.5px;bottom:9px;right:8px;padding:7px;}.game-scene .game-caption{max-width:calc(100% - 90px);white-space:normal;gap:5px;}}
