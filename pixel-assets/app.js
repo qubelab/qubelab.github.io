@@ -4,7 +4,7 @@ const questInfo = {
   spin: {
     tag: 'MISSION BRIEF / 001', title: 'Decode the radical pair.',
     text: 'Explore how light-triggered radical pairs and their spin dynamics produce measurable magnetic field effects in biological molecules.',
-    url: 'archive.html#services', link: 'RESEARCH OVERVIEW'
+    url: 'research.html', link: 'RESEARCH OVERVIEW'
   },
   sensing: {
     tag: 'MISSION BRIEF / 002', title: 'Find a quantum signal in living cells.',
