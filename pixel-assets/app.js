@@ -9,28 +9,28 @@ instrument: {
   link: 'EXPLORE THE RESEARCH'
 },
 simulation: {
-  tag: 'MISSION BRIEF / 002',
+  tag: 'MISSION BRIEF / 004',
   title: 'Simulate the spin system.',
   text: 'Develop simulation software and new computational approaches to model spin evolution, magnetic-field effects and spin-selective kinetics.',
   url: 'research.html#spin-dynamics-software',
   link: 'EXPLORE THE RESEARCH'
 },
 protein: {
-  tag: 'MISSION BRIEF / 003',
+  tag: 'MISSION BRIEF / 005',
   title: 'Follow the protein in motion.',
   text: 'Investigate protein conformations and fluctuations using molecular dynamics to connect their changing structure with spin-active molecular environments.',
   url: 'research.html#protein-molecular-dynamics',
   link: 'EXPLORE THE RESEARCH'
 },
 cells: {
-  tag: 'MISSION BRIEF / 004',
+  tag: 'MISSION BRIEF / 003',
   title: 'Sense the quantum world inside cells.',
   text: 'Explore quantum spin-sensitive measurements in living cells and at subcellular length scales, bridging molecular physics and biological readouts.',
   url: 'research.html#cellular-quantum-sensing',
   link: 'EXPLORE THE RESEARCH'
 },
 photochemistry: {
-  tag: 'MISSION BRIEF / 005',
+  tag: 'MISSION BRIEF / 002',
   title: 'Observe the radical pair. Reveal magnetic sensitivity.',
   text: 'Use photochemistry and spin spectroscopy to investigate magnetic-field-sensitive flavin and cryptochrome radical pairs.',
   url: 'research.html#radical-pair-photochemistry',
