@@ -34,16 +34,21 @@ function heatmap({title,z,xs,ys,label}){if(z.length!==xs.length*ys.length||z.som
 function output(metrics,plots=[],heat=null,extra=''){if(plots.some(p=>p.series.some(s=>s.y.some(y=>!Number.isFinite(y)))))throw Error('Calculated non-finite value. Adjust parameters.');R.innerHTML=metrics+extra+plots.map(svgPlot).join('')+(heat?heat.html:'');exports=[...plots.map(p=>({p})),...(heat?[{heat}]:[])];CSV.disabled=!exports.length;STATUS.textContent='Simulation complete · Original browser-local calculation.';}
 function csv(){let out=['plot,series,x,y,x_axis,y_axis'];for(const item of exports){if(item.p){let p=item.p;for(let s of p.series)for(let i=0;i<s.x.length;i++)out.push([p.title,s.name,s.x[i],s.y[i],p.xlabel,p.ylabel].map(x=>'"'+String(x).replaceAll('"','""')+'"').join(','));}else{for(const v of item.heat.rows)out.push([item.heat.label,'map',v.x,v.value,'x (mm); y='+v.y+' mm','Normalized signal'].map(x=>'"'+String(x).replaceAll('"','""')+'"').join(','));}}let blob=new Blob([out.join('\n')+'\n'],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='QUBE_'+module+'_simulation.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),500);}
 function validate(){for(const e of C.querySelectorAll('input[type="number"]'))if(!e.checkValidity()||!Number.isFinite(e.valueAsNumber))throw Error('Invalid or empty value: '+e.closest('label').textContent.trim());let r=getBase();return r;}
-const allVariants={
- AsLOV2:{n:'A,N14,7\nB,H1,4',k:1.5,tag:'illustrative baseline'},
- MagLOV:{n:'A,N14,10\nA,H1,8\nB,H1,5',k:1.0,tag:'illustrative couplings'},
- MagLOV2:{n:'A,N14,13\nA,H1,9\nB,H1,7',k:.8,tag:'illustrative couplings'},
- MagLOV2f:{n:'A,N14,14\nA,H1,8\nB,H1,6',k:.65,tag:'illustrative couplings'}
-};
 const mods={
- maglov:{controls:()=>sep('VARIANT COMPARISON · ALL VALUES ILLUSTRATIVE')+common()+number('maxB','Maximum field (mT)',5,.1,20)+number('draws','Samples per variant',12,2,64,1)+number('seed','Reproducible random seed',2206,1,999999,1)+number('ascale','Global hyperfine multiplier',1,.01,5)+number('kscale','Global rate multiplier',1,.05,10)+Object.entries(allVariants).map(([name,p])=>number('k_'+name,name+' · rate k (µs⁻¹)',p.k,.001,20)+number('a_'+name,name+' · hyperfine multiplier',1,.01,5)).join(''),run(){let base=validate(),maxB=val('maxB'),x=lin(0,maxB,41),variantEntries=Object.entries(allVariants),a=[],b=[],rows=[];
- for(let [name,v] of variantEntries){let nuc=P.parseNuclei(v.n).map(n=>({...n,A:n.A*val('ascale')*val('a_'+name)})),draws=P.bathDraws(nuc,val('draws'),val('seed')),k=val('k_'+name)*val('kscale'),y=x.map(B=>P.ensemble({...base,B},draws,k).mean),den=y[0];a.push(series(name,x,y));b.push(series(name,x,y.map(s=>100*(s-den)/Math.max(1e-12,den))));rows.push([name+' · rate k (µs⁻¹)',fmt(k)]);}
- output(stats([['Presets compared','4'],['Classical bath samples / variant',val('draws')],['Reaction model','equal-rate Haberkorn'],...rows]),[plot('Singlet product yield vs static field','B (mT)','Singlet yield ΦS',a,{minY:0,maxY:1}),plot('MARY response relative to B = 0','B (mT)','ΔΦS / ΦS(0) (%)',b)],null,note('These four named scenarios use freely chosen teaching parameters, not measured protein couplings, lifetimes, or predictions of experimental rank order. Magnetic fluorescence requires an independently calibrated optical transduction model.'));}},
+ mary:{controls:()=>sep('GENERAL RADICAL-PAIR MARY · NO PROTEIN PRESETS')+common()+textarea('nuclei','Nuclei: radical, isotope, isotropic A (MHz)',bathNuclei)+number('maxB','Maximum magnetic field (mT)',5,.1,20)+number('k','Common Haberkorn rate k (µs⁻¹)',1,.001,20)+number('draws','Quasi-static nuclear-field samples',12,2,64,1)+number('seed','Reproducible random seed',2206,1,999999,1),run(){
+  const base=validate(),nuc=P.parseNuclei(str('nuclei')),maxB=val('maxB'),x=lin(0,maxB,41),k=val('k'),n=val('draws'),seed=val('seed');
+  const scenarios=[['Electron-only',[]],['Radical A nuclei',nuc.filter(t=>t.site===0)],['Radical B nuclei',nuc.filter(t=>t.site===1)],['Both radical baths',nuc]];
+  const outYield=[],outMFE=[],rows=[];
+  for(const [name,entries] of scenarios){
+   const bath=P.bathDraws(entries,n,seed),y=x.map(B=>P.ensemble({...base,B},bath,k).mean),zero=y[0];
+   outYield.push(series(name,x,y));outMFE.push(series(name,x,y.map(v=>100*(v-zero)/Math.max(1e-12,zero))));
+   rows.push([name+' · ΦS(0)',fmt(zero)]);
+  }
+  output(stats([['Compared models','4'],['Entered nuclei',nuc.length],['Samples per model',n],['Common k (µs⁻¹)',fmt(k)],...rows]),[
+   plot('Singlet reaction yield vs magnetic field','B (mT)','Singlet yield ΦS',outYield,{minY:0,maxY:1}),
+   plot('MARY response relative to B = 0','B (mT)','ΔΦS / ΦS(0) (%)',outMFE)
+  ],null,note('Generic, illustrative spin-1/2 radical-pair scenarios, not protein-specific parameterizations. Four models share identical g factors, reaction rates, exchange and dipolar settings; only the quasi-static nuclear baths differ. This is an educational approximation and not a calibrated magnetic-fluorescence prediction.'));
+ }},
  semiclassical:{controls:()=>sep('MULTI-NUCLEUS CLASSICAL BATH')+common()+textarea('nuclei','Nuclei: site, isotope, isotropic A (MHz)',bathNuclei)+number('maxB','Maximum sweep B (mT)',5,.1,30)+number('B','Time-trace field B (mT)',1,0,30)+number('k','Common Haberkorn rate k (µs⁻¹)',1,.001,30)+number('draws','Overhauser samples',20,2,128,1)+number('seed','Random seed',503,1,999999,1)+number('duration','Time window (µs)',1.5,.05,10),run(){let base=validate(),nuc=P.parseNuclei(str('nuclei')),draws=P.bathDraws(nuc,val('draws'),val('seed')),x=lin(0,val('maxB'),51),res=x.map(B=>P.ensemble({...base,B},draws,val('k'))),time=lin(0,val('duration'),111),curve=new Array(time.length).fill(0);
  for(const [a,b] of draws){let ev=P.cEig(P.hamiltonian(base,a,b));time.forEach((t,i)=>curve[i]+=P.timeSinglet(ev,t)/draws.length);}
  let y=P.ensemble(base,draws,val('k'));

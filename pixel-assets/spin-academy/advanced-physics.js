@@ -2,7 +2,7 @@
    H/h: MHz (cycles/µs), B:mT, t:µs, distances:nm. Independent, local JS.
    Four-dimensional electron Hilbert space. Quasistatic Overhauser fields model nuclear bath.
    Equal-rate yields: exact eigensystem. General Haberkorn + Lindblad: inverse Liouvillian.
-   No published or experimentally fitted MagLOV variant parameters are bundled. */
+   No named protein-specific parameter sets are bundled. */
 (function(root){'use strict';const Q=root.QPhysics;if(!Q)throw Error('Load physics.js first.');
 const N=4, E=Q.ops(2), ID=Q.eye(4), zero=()=>Q.z(4), add=Q.add,sc=Q.scale,mul=Q.mul,tr=Q.tr;
 const K=13.99624555;let dot=zero();for(let a=0;a<3;a++)dot=add(dot,mul(E[0][a],E[1][a]));
