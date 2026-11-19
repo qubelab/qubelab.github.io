@@ -1,21 +1,41 @@
 'use strict';
 
 const questInfo = {
-  spin: {
-    tag: 'MISSION BRIEF / 001', title: 'Decode the radical pair.',
-    text: 'Explore how light-triggered radical pairs and their spin dynamics produce measurable magnetic field effects in biological molecules.',
-    url: 'research.html', link: 'RESEARCH OVERVIEW'
-  },
-  sensing: {
-    tag: 'MISSION BRIEF / 002', title: 'Find a quantum signal in living cells.',
-    text: 'Investigate magnetosensitive fluorescent proteins, spectroscopy, and the exciting possibilities of protein-based quantum sensing.',
-    url: 'https://www.nature.com/articles/s41586-025-09971-3', link: 'DISCOVER THE PAPER'
-  },
-  software: {
-    tag: 'MISSION BRIEF / 003', title: 'Simulate the invisible.',
-    text: 'Use open-source tools and interactive tutorials to understand spin Hamiltonians, relaxation, magnetic field effects, and radical-pair kinetics.',
-    url: 'https://github.com/Spin-Chemistry-Labs/radicalpy', link: 'EXPLORE RADICALPY'
-  }
+instrument: {
+  tag: 'MISSION BRIEF / 001',
+  title: 'Build the instrument. Reveal the spin.',
+  text: 'Develop custom optical measurements that detect quantum spin effects through light, combining instrument design with precision experiments.',
+  url: 'research.html#optical-instrumentation',
+  link: 'EXPLORE THE RESEARCH'
+},
+simulation: {
+  tag: 'MISSION BRIEF / 002',
+  title: 'Simulate the spin system.',
+  text: 'Develop simulation software and new computational approaches to model spin evolution, magnetic-field effects and spin-selective kinetics.',
+  url: 'research.html#spin-dynamics-software',
+  link: 'EXPLORE THE RESEARCH'
+},
+protein: {
+  tag: 'MISSION BRIEF / 003',
+  title: 'Follow the protein in motion.',
+  text: 'Investigate protein conformations and fluctuations using molecular dynamics to connect their changing structure with spin-active molecular environments.',
+  url: 'research.html#protein-molecular-dynamics',
+  link: 'EXPLORE THE RESEARCH'
+},
+cells: {
+  tag: 'MISSION BRIEF / 004',
+  title: 'Sense the quantum world inside cells.',
+  text: 'Explore quantum spin-sensitive measurements in living cells and at subcellular length scales, bridging molecular physics and biological readouts.',
+  url: 'research.html#cellular-quantum-sensing',
+  link: 'EXPLORE THE RESEARCH'
+},
+photochemistry: {
+  tag: 'MISSION BRIEF / 005',
+  title: 'Observe the radical pair. Reveal magnetic sensitivity.',
+  text: 'Use photochemistry and spin spectroscopy to investigate magnetic-field-sensitive flavin and cryptochrome radical pairs.',
+  url: 'research.html#radical-pair-photochemistry',
+  link: 'EXPLORE THE RESEARCH'
+}
 };
 
 for (const button of document.querySelectorAll('[data-quest]')) {
